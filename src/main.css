@@ -2,10 +2,29 @@
     display: flex;
     flex-direction: column;
     max-width: 500px;
+    height: fit-content;
+    margin: auto;
+    background-color: pink;
+}
+
+p {
+    text-align: center;
+}
+
+.note input {
+    display: block;
+    min-width: 100px;
+    margin: auto;
 }
 
 form {
-    display: grid;
-    grid-auto-flow: column;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
     margin-bottom: 1rem;
+}
+
+form .time-div {
+    display: flex;
+    flex-direction: column;
 }
