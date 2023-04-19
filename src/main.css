@@ -11,20 +11,71 @@ p {
     text-align: center;
 }
 
-.note input {
-    display: block;
-    min-width: 100px;
-    margin: auto;
+.indicator {
+    margin-top: 1.25rem;
+    font-size: 1.5rem;
 }
 
 form {
+    background-color: #fff;
+    font-size: 1.2rem;
     margin: auto;
     display: flex;
     flex-direction: row;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    height: fit-content;
+    width: 18rem;
 }
 
 form .time-div {
+    flex: 1 1 0%;
     display: flex;
     flex-direction: column;
+    margin: auto;
+}
+
+form .time-div label,
+form .time-div div {
+    margin: 0.5rem 0.25rem;
+}
+
+form .time-div label {
+    width: fit-content;
+}
+
+form .time-div div {
+    display: flex;
+    flex-direction: row;
+}
+
+.time-div div .clock-button {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+}
+
+form .time-div input {
+    width: 50%;
+    margin-left: 2rem;
+}
+
+form .time-div input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+form .time-submit {
+    width: 2rem;
+}
+
+.note p {
+    font-size: 1.5rem;
+}
+
+.note input {
+    display: block;
+    width: 18rem;
+    height: 2rem;
+    margin: auto;
+    text-align: center;
+    font-size: 1.25rem;
 }
