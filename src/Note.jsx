@@ -1,4 +1,4 @@
-const Question = (props) => {
+const Note = (props) => {
     return (
         <div className="note">
             <p>What did you have for {props.meals}?</p>
@@ -7,4 +7,4 @@ const Question = (props) => {
     );
 };
 
-export default Question;
+export default Note;
