@@ -41,6 +41,7 @@ form .time-div div {
 
 form .time-div label {
     width: fit-content;
+    font-size: 1rem;
 }
 
 form .time-div div {
@@ -57,10 +58,10 @@ form .time-div div {
 form .time-div input {
     width: 50%;
     margin-left: 2rem;
-}
-
-form .time-div input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
+    text-align: center;
+    padding-top: 0.2rem;
+    padding-right: 0.2rem;
+    font-size: 1rem;
 }
 
 form .time-submit {
