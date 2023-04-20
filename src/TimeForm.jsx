@@ -2,14 +2,14 @@ import ClockButton from "./ClockButton";
 
 const TimeForm = (props) => {
     return (
-        <form>
+        <form id={props.formId}>
             <div className="time-div">
-                <label htmlFor={props.out}>Time Out</label>
+                <label htmlFor={props.out}>T. Out</label>
                 <div>
                     <ClockButton icon="🕙" />
                     <input id={props.out} type="time" required />
                 </div>
-                <label htmlFor={props.in}>Time In</label>
+                <label htmlFor={props.in}>T. In</label>
                 <div>
                     <ClockButton icon="🕑" />
                     <input id={props.in} type="time" required />

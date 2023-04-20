@@ -7,8 +7,8 @@ const App = () => {
     return (
         <div className="content-box">
             <Indicator />
-            <TimeForm out="out-1" in="in-1" sequence="1" />
-            <TimeForm out="out-2" in="in-2" sequence="2" />
+            <TimeForm formId="form-1" out="out-1" in="in-1" sequence="1" />
+            <TimeForm formId="form-2" out="out-2" in="in-2" sequence="2" />
             <Note meals="lunch" />
             <Note meals="dinner" />
         </div>
