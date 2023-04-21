@@ -1,4 +1,5 @@
 import ClockButton from "./ClockButton";
+import TimeInput from "./TimeInput";
 
 const TimeForm = (props) => {
     return (
@@ -7,12 +8,12 @@ const TimeForm = (props) => {
                 <label htmlFor={props.out}>T. Out</label>
                 <div>
                     <ClockButton icon="🕙" />
-                    <input id={props.out} type="time" required />
+                    <TimeInput timeInputId={props.out} />
                 </div>
                 <label htmlFor={props.in}>T. In</label>
                 <div>
                     <ClockButton icon="🕑" />
-                    <input id={props.in} type="time" required />
+                    <TimeInput timeInputId={props.in} />
                 </div>
             </div>
             <input
