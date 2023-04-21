@@ -36,7 +36,7 @@ form .time-div {
 
 form .time-div label,
 form .time-div div {
-    margin: 0.5rem 0.25rem;
+    margin: 0.25rem 0.25rem;
 }
 
 form .time-div label {
@@ -47,6 +47,10 @@ form .time-div label {
 form .time-div div {
     display: flex;
     flex-direction: row;
+}
+
+form .time-div .in-time {
+    margin-top: 1rem;
 }
 
 .time-div div .clock-button {

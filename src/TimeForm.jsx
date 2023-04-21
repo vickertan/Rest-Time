@@ -11,7 +11,9 @@ const TimeForm = () => {
                     <ClockButton icon="🕙" />
                     <TimeInput timeInputId="out-time" />
                 </div>
-                <label htmlFor="in-time">T. In</label>
+                <label className="in-time" htmlFor="in-time">
+                    T. In
+                </label>
                 <div>
                     <ClockButton icon="🕑" />
                     <TimeInput timeInputId="in-time" />
