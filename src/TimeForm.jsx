@@ -2,28 +2,22 @@ import ClockButton from "./ClockButton";
 import TimeInput from "./TimeInput";
 import CalcButton from "./CalcButton";
 
-const TimeForm = ({ sequence }) => {
+const TimeForm = () => {
     return (
-        <form id={"form" + sequence}>
+        <form id="form">
             <div className="time-div">
-                <label htmlFor={"out" + sequence}>T. Out</label>
+                <label htmlFor="out-time">T. Out</label>
                 <div>
                     <ClockButton icon="🕙" />
-                    <TimeInput
-                        timeInputId={"out" + sequence}
-                        sequence={sequence}
-                    />
+                    <TimeInput timeInputId="out-time" />
                 </div>
-                <label htmlFor={"in" + sequence}>T. In</label>
+                <label htmlFor="in-time">T. In</label>
                 <div>
                     <ClockButton icon="🕑" />
-                    <TimeInput
-                        timeInputId={"in" + sequence}
-                        sequence={sequence}
-                    />
+                    <TimeInput timeInputId="in-time" />
                 </div>
             </div>
-            <CalcButton sequence={sequence} />
+            <CalcButton />
         </form>
     );
 };

@@ -1,5 +1,11 @@
-const CalcButton = (props) => {
-    return <button className="calc-button">{props.sequence}</button>;
+const CalcButton = () => {
+    function handleClick(e) {}
+
+    return (
+        <button className="calc-button" onClick={handleClick}>
+            |
+        </button>
+    );
 };
 
 export default CalcButton;

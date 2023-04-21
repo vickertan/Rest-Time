@@ -7,7 +7,7 @@ const App = () => {
     return (
         <div className="content-box">
             <Indicator />
-            <TimeForm sequence="1" />
+            <TimeForm />
             <QnA text="What did you have for lunch?" />
             <QnA text="What did you have for dinner?" />
         </div>
