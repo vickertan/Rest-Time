@@ -1,26 +1,29 @@
 import ClockButton from "./ClockButton";
 import TimeInput from "./TimeInput";
+import CalcButton from "./CalcButton";
 
-const TimeForm = (props) => {
+const TimeForm = ({ sequence }) => {
     return (
-        <form id={props.formId}>
+        <form id={"form" + sequence}>
             <div className="time-div">
-                <label htmlFor={props.out}>T. Out</label>
+                <label htmlFor={"out" + sequence}>T. Out</label>
                 <div>
                     <ClockButton icon="🕙" />
-                    <TimeInput timeInputId={props.out} />
+                    <TimeInput
+                        timeInputId={"out" + sequence}
+                        sequence={sequence}
+                    />
                 </div>
-                <label htmlFor={props.in}>T. In</label>
+                <label htmlFor={"in" + sequence}>T. In</label>
                 <div>
                     <ClockButton icon="🕑" />
-                    <TimeInput timeInputId={props.in} />
+                    <TimeInput
+                        timeInputId={"in" + sequence}
+                        sequence={sequence}
+                    />
                 </div>
             </div>
-            <input
-                className="time-submit"
-                type="submit"
-                value={props.sequence}
-            />
+            <CalcButton sequence={sequence} />
         </form>
     );
 };
