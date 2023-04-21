@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import Indicator from "./Indicator";
 import TimeForm from "./TimeForm";
-import QnA from "./Note";
+import QnA from "./QnA";
 
 const App = () => {
     return (
