@@ -1,10 +1,10 @@
-const Note = (props) => {
+const QnA = (props) => {
     return (
         <div className="note">
-            <p>What did you have for {props.meals}?</p>
+            <p>{props.text}</p>
             <input type="text" />
         </div>
     );
 };
 
-export default Note;
+export default QnA;
