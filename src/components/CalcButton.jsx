@@ -1,23 +1,13 @@
+import calculateTime from "../tasks/calculateTime";
+
 const CalcButton = (props) => {
     function handleClick(e) {
         e.preventDefault();
-        const outTime = document.getElementById("out-time").value;
-        const inTime = document.getElementById("in-time").value;
 
-        const hour = inTime.slice(0, 2) - outTime.slice(0, 2);
-        let hourUsed = hour < 0 ? hour + 24 : hour;
+        const time = calculateTime();
 
-        const mins = inTime.slice(-2) - outTime.slice(-2);
-        let minsUsed = 0;
-        if (mins < 0) {
-            minsUsed = mins + 60;
-            hourUsed--;
-        } else {
-            minsUsed = mins;
-        }
-
-        props.setHourLeft(props.hourLeft - hourUsed);
-        props.setMinsLeft(props.minsLeft - minsUsed);
+        props.setHourLeft(props.hourLeft - time.slice(0, 2));
+        props.setMinsLeft(props.minsLeft - time.slice(-2));
     }
 
     return (
