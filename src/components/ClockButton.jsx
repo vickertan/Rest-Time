@@ -1,4 +1,4 @@
-import getCurTime from "./tasks/getCurTime";
+import getCurTime from "../tasks/getCurTime";
 
 const ClockButton = (props) => {
     return (
