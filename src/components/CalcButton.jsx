@@ -1,4 +1,4 @@
-const CalcButton = () => {
+const CalcButton = (props) => {
     function handleClick(e) {
         e.preventDefault();
         const outTime = document.getElementById("out-time").value;
@@ -16,7 +16,8 @@ const CalcButton = () => {
             minsUsed = mins;
         }
 
-        console.log(hourUsed, minsUsed);
+        props.setHourLeft(props.hourLeft - hourUsed);
+        props.setMinsLeft(props.minsLeft - minsUsed);
     }
 
     return (
