@@ -2,7 +2,7 @@ import ClockButton from "./ClockButton";
 import TimeInput from "./TimeInput";
 import CalcButton from "./CalcButton";
 
-const TimeForm = () => {
+const TimeForm = (props) => {
     return (
         <form id="form">
             <div className="time-div">
@@ -19,7 +19,7 @@ const TimeForm = () => {
                     <TimeInput timeInputId="in-time" />
                 </div>
             </div>
-            <CalcButton />
+            <CalcButton {...props} />
         </form>
     );
 };
