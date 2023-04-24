@@ -8,17 +8,20 @@ const CalcButton = (props) => {
 
         e.preventDefault();
 
-        if (outTime !== inTime) {
-            if (outTime && inTime) {
+        if (outTime && inTime) {
+            if (outTime !== inTime) {
                 time = calculateTime(outTime, inTime);
                 props.setHourLeft(props.hourLeft - time.slice(0, 2));
                 props.setMinsLeft(props.minsLeft - time.slice(-2));
                 document.getElementById("out-time").value = "";
                 document.getElementById("in-time").value = "";
+            } else {
+                // change input value color
+                console.log("Error: out time and in time are the same!");
             }
         } else {
-            // change submit button color
-            console.log("Button color change");
+            // change empty input box color
+            console.log("Error: calculating empty input!");
         }
     }
 
