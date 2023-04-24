@@ -2,5 +2,4 @@
 
 -   Fix minus value in "time left indicator"
 -   Create history of out and in times
--   Reset input on calculate button click
--   Show warning on empty input
+-   Create proper style for visualisation
