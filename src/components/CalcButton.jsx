@@ -1,4 +1,5 @@
 import calculateTimeUsed from "../tasks/calculateTimeUsed";
+import calculateTimeLeft from "../tasks/calculateTimeLeft";
 
 const CalcButton = (props) => {
     function handleClick(e) {
@@ -7,10 +8,17 @@ const CalcButton = (props) => {
         let outTime = document.getElementById("out-time").value;
         let inTime = document.getElementById("in-time").value;
         let timeUsed = "";
+        let timeLeft = "";
 
         if (outTime && inTime) {
             if (outTime !== inTime) {
                 timeUsed = calculateTimeUsed(outTime, inTime);
+                timeLeft = calculateTimeLeft(
+                    timeUsed,
+                    props.hourLeft,
+                    props.minsLeft
+                );
+
                 props.setHourLeft(props.hourLeft - timeUsed.slice(0, 2));
                 props.setMinsLeft(props.minsLeft - timeUsed.slice(-2));
                 document.getElementById("out-time").value = "";
