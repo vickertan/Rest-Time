@@ -1,7 +1,7 @@
-function calculateTime() {
+function calculateTime(outInput, inInput) {
     // get the values of user's inputs
-    const outTime = document.getElementById("out-time").value;
-    const inTime = document.getElementById("in-time").value;
+    const outTime = outInput;
+    const inTime = inInput;
 
     // calculate hours and minutes used
     const hour = inTime.slice(0, 2) - outTime.slice(0, 2);
