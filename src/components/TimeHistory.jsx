@@ -4,9 +4,9 @@ const TimeHistory = ({ timeList }) => {
             {!timeList.length ? (
                 <p>No record yet</p>
             ) : (
-                timeList.map((time, index) => {
+                timeList.map((index, time) => {
                     return (
-                        <div id={index} className="record">
+                        <div key={index} className="record">
                             <p>O. {time.timeOut}</p>
                             <p>I. {time.timeIn}</p>
                         </div>
