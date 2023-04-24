@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { useState } from "react";
 import Indicator from "./components/Indicator";
 import TimeForm from "./components/TimeForm";
+import TimeHistory from "./components/TimeHistory";
 import QnA from "./components/QnA";
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
                 minsLeft={minsLeft}
                 setMinsLeft={setMinsLeft}
             />
+            <TimeHistory />
             <QnA text="What did you have for lunch?" />
             <QnA text="What did you have for dinner?" />
         </div>
