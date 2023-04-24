@@ -1,4 +1,4 @@
-function calculateTime(outInput, inInput) {
+function calculateTimeUsed(outInput, inInput) {
     // get the values of user's inputs
     const outTime = outInput;
     const inTime = inInput;
@@ -24,4 +24,4 @@ function calculateTime(outInput, inInput) {
     );
 }
 
-export default calculateTime;
+export default calculateTimeUsed;

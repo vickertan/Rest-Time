@@ -1,18 +1,18 @@
-import calculateTime from "../tasks/calculateTime";
+import calculateTimeUsed from "../tasks/calculateTimeUsed";
 
 const CalcButton = (props) => {
     function handleClick(e) {
+        e.preventDefault();
+
         let outTime = document.getElementById("out-time").value;
         let inTime = document.getElementById("in-time").value;
-        let time = "";
-
-        e.preventDefault();
+        let timeUsed = "";
 
         if (outTime && inTime) {
             if (outTime !== inTime) {
-                time = calculateTime(outTime, inTime);
-                props.setHourLeft(props.hourLeft - time.slice(0, 2));
-                props.setMinsLeft(props.minsLeft - time.slice(-2));
+                timeUsed = calculateTimeUsed(outTime, inTime);
+                props.setHourLeft(props.hourLeft - timeUsed.slice(0, 2));
+                props.setMinsLeft(props.minsLeft - timeUsed.slice(-2));
                 document.getElementById("out-time").value = "";
                 document.getElementById("in-time").value = "";
             } else {
