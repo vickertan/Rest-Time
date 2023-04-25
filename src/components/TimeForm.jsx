@@ -1,16 +1,16 @@
 import { useRef } from "react";
-import calculateTimeUsed from "../tasks/calculateTimeUsed";
+import calculateTimeUsed from "../func/calculateTimeUsed";
 
-const TimeForm = (props) => {
+export default function TimeForm(props) {
     const outTimeRef = useRef(null);
     const inTimeRef = useRef(null);
 
     return (
-        <form id="form">
+        <div id="form">
             <div className="time-div">
                 <label htmlFor="out-time">T. Out</label>
                 <div>
-                    <ClockButton icon="🕙" r={outTimeRef} />
+                    <ClockButton icon="🕙" />
                     <input
                         ref={outTimeRef}
                         id="out-time"
@@ -22,20 +22,21 @@ const TimeForm = (props) => {
                     T. In
                 </label>
                 <div>
-                    <ClockButton icon="🕑" r={inTimeRef} />
+                    <ClockButton icon="🕑" />
                     <input ref={inTimeRef} id="in-time" type="time" required />
                 </div>
             </div>
             <CalcButton {...props} />
-        </form>
+        </div>
     );
-};
+}
 
 function ClockButton(props) {
+    const timeInput = useRef(null);
+
     function getCurTime(e) {
-        e.preventDefault();
         // const timeInput = e.target.parentNode.querySelector("input");
-        console.log(e.target);
+        console.log(timeInput.current);
         // const timeInput = e.target.props.r.current;
 
         const hour = new Date().getHours();
@@ -53,8 +54,6 @@ function ClockButton(props) {
 
 function CalcButton(props) {
     function handleClick(e) {
-        e.preventDefault();
-
         let timeUsed = "";
         // let timeLeft = "";
 
@@ -87,5 +86,3 @@ function CalcButton(props) {
         </button>
     );
 }
-
-export default TimeForm;

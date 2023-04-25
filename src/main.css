@@ -16,7 +16,7 @@ p {
     font-size: 1.5rem;
 }
 
-form {
+#form {
     background-color: #fff;
     font-size: 1.2rem;
     margin: auto;
@@ -27,29 +27,29 @@ form {
     width: 18rem;
 }
 
-form .time-div {
+#form .time-div {
     flex: 1 1 0%;
     display: flex;
     flex-direction: column;
     margin: auto;
 }
 
-form .time-div label,
-form .time-div div {
+#form .time-div label,
+#form .time-div div {
     margin: 0.25rem 0.25rem;
 }
 
-form .time-div label {
+#form .time-div label {
     width: fit-content;
     font-size: 1rem;
 }
 
-form .time-div div {
+#form .time-div div {
     display: flex;
     flex-direction: row;
 }
 
-form .time-div .in-time {
+#form .time-div .in-time {
     margin-top: 1rem;
 }
 
@@ -59,7 +59,7 @@ form .time-div .in-time {
     margin-left: 1rem;
 }
 
-form .time-div input {
+#form .time-div input {
     width: 50%;
     margin-left: 2rem;
     text-align: center;
@@ -68,7 +68,7 @@ form .time-div input {
     font-size: 1rem;
 }
 
-form .calc-button {
+#form .calc-button {
     width: 2rem;
 }
 
