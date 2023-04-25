@@ -1,9 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { useState } from "react";
-import Indicator from "./components/Indicator";
 import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
-import QnA from "./components/QnA";
 
 const App = () => {
     const limit = {
@@ -19,21 +17,27 @@ const App = () => {
 
     return (
         <div className="content-box">
-            <Indicator
-                hourLimit={hourLimit}
-                minsLimit={minsLimit}
-                hourLeft={hourLeft}
-                minsLeft={minsLeft}
-            />
+            <div className="indicator">
+                <p>
+                    Limit : {hourLimit} hr {minsLimit} mins
+                </p>
+                <p>
+                    Time Left : {hourLeft} hr {minsLeft} mins
+                </p>
+            </div>
             <TimeForm
                 hourLeft={hourLeft}
                 setHourLeft={setHourLeft}
                 minsLeft={minsLeft}
                 setMinsLeft={setMinsLeft}
             />
-            <TimeHistory />
-            <QnA text="What did you have for lunch?" />
-            <QnA text="What did you have for dinner?" />
+            {/* <TimeHistory /> */}
+            <div className="note">
+                <p>What did you have for lunch?</p>
+                <input type="text" />
+                <p>What did you have for dinner?</p>
+                <input type="text" />
+            </div>
         </div>
     );
 };
