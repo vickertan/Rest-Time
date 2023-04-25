@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { forwardRef, useRef } from "react";
 import calculateTimeUsed from "../func/calculateTimeUsed";
 
 export default function TimeForm(props) {
@@ -10,7 +10,7 @@ export default function TimeForm(props) {
             <div className="time-div">
                 <label htmlFor="out-time">T. Out</label>
                 <div>
-                    <ClockButton icon="🕙" />
+                    <ClockButton icon="🕙" ref={outTimeRef} />
                     <input
                         ref={outTimeRef}
                         id="out-time"
@@ -22,7 +22,7 @@ export default function TimeForm(props) {
                     T. In
                 </label>
                 <div>
-                    <ClockButton icon="🕑" />
+                    <ClockButton icon="🕑" ref={inTimeRef} />
                     <input ref={inTimeRef} id="in-time" type="time" required />
                 </div>
             </div>
@@ -31,18 +31,12 @@ export default function TimeForm(props) {
     );
 }
 
-function ClockButton(props) {
-    const timeInput = useRef(null);
-
-    function getCurTime(e) {
-        // const timeInput = e.target.parentNode.querySelector("input");
-        console.log(timeInput.current);
-        // const timeInput = e.target.props.r.current;
-
+const ClockButton = forwardRef((props, ref) => {
+    function getCurTime() {
         const hour = new Date().getHours();
         const mins = new Date().getMinutes();
         const curTime = hour + ":" + String(mins).padStart(2, "0");
-        timeInput.value = curTime;
+        ref.current.value = curTime;
     }
 
     return (
@@ -50,10 +44,10 @@ function ClockButton(props) {
             {props.icon}
         </button>
     );
-}
+});
 
 function CalcButton(props) {
-    function handleClick(e) {
+    function handleClick() {
         let timeUsed = "";
         // let timeLeft = "";
 
