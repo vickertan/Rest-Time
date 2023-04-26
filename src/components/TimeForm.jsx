@@ -26,7 +26,7 @@ export default function TimeForm(props) {
                     <input ref={inTimeRef} id="in-time" type="time" required />
                 </div>
             </div>
-            <CalcButton {...props} />
+            <CalcButton {...props} ref={{ outTimeRef, inTimeRef }} />
         </div>
     );
 }
@@ -46,31 +46,23 @@ const ClockButton = forwardRef((props, ref) => {
     );
 });
 
-function CalcButton(props) {
+const CalcButton = forwardRef((props, ref) => {
     function handleClick() {
-        let timeUsed = "";
-        // let timeLeft = "";
+        let outTime = ref.outTimeRef.current.value;
+        let inTime = ref.inTimeRef.current.value;
 
         if (outTime && inTime) {
             if (outTime !== inTime) {
-                timeUsed = calculateTimeUsed(outTime, inTime);
-                // timeLeft = calculateTimeLeft(
-                //     timeUsed,
-                //     props.hourLeft,
-                //     props.minsLeft
-                // );
-
+                const timeUsed = calculateTimeUsed(outTime, inTime);
                 props.setHourLeft(props.hourLeft - timeUsed.slice(0, 2));
                 props.setMinsLeft(props.minsLeft - timeUsed.slice(-2));
-                document.getElementById("out-time").value = "";
-                document.getElementById("in-time").value = "";
             } else {
                 // change input value color
-                console.log("Error: out time and in time are the same!");
+                console.log("Error: same input value");
             }
         } else {
-            // change empty input box color
-            console.log("Error: calculating empty input!");
+            // change input box color
+            console.log("Error: empty input");
         }
     }
 
@@ -79,4 +71,4 @@ function CalcButton(props) {
             |
         </button>
     );
-}
+});
