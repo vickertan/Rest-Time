@@ -10,7 +10,7 @@ export default function TimeForm(props) {
             <div className="time-div">
                 <label htmlFor="out-time">T. Out</label>
                 <div>
-                    <ClockButton icon="🕙" ref={outTimeRef} />
+                    <ClockButton ref={outTimeRef} />
                     <input
                         ref={outTimeRef}
                         id="out-time"
@@ -22,7 +22,7 @@ export default function TimeForm(props) {
                     T. In
                 </label>
                 <div>
-                    <ClockButton icon="🕑" ref={inTimeRef} />
+                    <ClockButton ref={inTimeRef} />
                     <input ref={inTimeRef} id="in-time" type="time" required />
                 </div>
             </div>
@@ -39,11 +39,7 @@ const ClockButton = forwardRef((props, ref) => {
         ref.current.value = curTime;
     }
 
-    return (
-        <button className="clock-button" onClick={getCurTime}>
-            {props.icon}
-        </button>
-    );
+    return <button className="clock-button" onClick={getCurTime}></button>;
 });
 
 const CalcButton = forwardRef((props, ref) => {
