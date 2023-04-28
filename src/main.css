@@ -1,14 +1,31 @@
+:root {
+    --dark: #374151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --gray: #6b7280;
+    --light: #eee;
+    --blue: #132553;
+    --pink: #c853c1;
+    --red: #aa1e3a;
+}
+
+body {
+    background-color: var(--blue);
+}
+
 .content-box {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     height: fit-content;
     margin: auto;
-    background-color: pink;
+    border: 3px solid pink;
+    border-radius: 1rem;
 }
 
 p {
     text-align: center;
+    color: var(--light);
 }
 
 .indicator {
@@ -17,7 +34,6 @@ p {
 }
 
 #form {
-    background-color: #fff;
     font-size: 1.2rem;
     margin: auto;
     display: flex;
@@ -25,6 +41,9 @@ p {
     margin-bottom: 2rem;
     height: fit-content;
     width: 18rem;
+    border: 3px solid pink;
+    border-radius: 1rem;
+    padding: 1rem;
 }
 
 #form .time-div {
@@ -32,11 +51,13 @@ p {
     display: flex;
     flex-direction: column;
     margin: auto;
+    background-color: var(--blue);
 }
 
 #form .time-div label,
 #form .time-div div {
     margin: 0.25rem 0.25rem;
+    color: var(--light);
 }
 
 #form .time-div label {
@@ -54,9 +75,14 @@ p {
 }
 
 .time-div div .clock-button {
+    background-color: var(--blue);
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
+    background-image: url("../assets/transparent\ clock\ iconpng.png");
+    background-size: auto 100%;
+    outline: none;
+    border: none;
 }
 
 #form .time-div input {
@@ -78,9 +104,16 @@ p {
 
 .note input {
     display: block;
+    background-color: var(--blue);
     width: 18rem;
     height: 2rem;
     margin: auto;
     text-align: center;
     font-size: 1.25rem;
+    border: 1px solid pink;
+    border-radius: 10rem;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
 }
