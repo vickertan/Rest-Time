@@ -5,7 +5,7 @@
     --gray: #6b7280;
     --light: #eee;
     --blue: #132553;
-    --pink: #c853c1;
+    --pink: #ff9df4;
     --red: #aa1e3a;
 }
 
@@ -16,10 +16,10 @@ body {
 .content-box {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    max-width: 400px;
     height: fit-content;
     margin: auto;
-    border: 3px solid pink;
+    border: 1px solid var(--pink);
     border-radius: 1rem;
 }
 
@@ -30,7 +30,8 @@ p {
 
 .indicator {
     margin-top: 1.25rem;
-    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
 }
 
 #form {
@@ -41,7 +42,7 @@ p {
     margin-bottom: 2rem;
     height: fit-content;
     width: 18rem;
-    border: 3px solid pink;
+    border: 1px solid var(--pink);
     border-radius: 1rem;
     padding: 1rem;
 }
@@ -63,11 +64,26 @@ p {
 #form .time-div label {
     width: fit-content;
     font-size: 1rem;
+    margin-left: 1rem;
 }
 
 #form .time-div div {
     display: flex;
     flex-direction: row;
+}
+
+#form .time-div input {
+    width: 50%;
+    height: auto;
+    background-color: var(--blue);
+    color: var(--light);
+    border: 1px solid var(--pink);
+    border-radius: 0.5rem;
+    margin-left: 2rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    font-size: 0.7rem;
+    outline: none;
 }
 
 #form .time-div .in-time {
@@ -79,39 +95,49 @@ p {
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
-    background-image: url("../assets/transparent\ clock\ iconpng.png");
+    background-image: url("../assets/transparent\ clock\ icon.png");
     background-size: auto 100%;
     outline: none;
     border: none;
 }
 
-#form .time-div input {
-    width: 50%;
-    margin-left: 2rem;
-    text-align: center;
-    padding-top: 0.2rem;
-    padding-right: 0.2rem;
-    font-size: 1rem;
+#form .calc-button {
+    background-color: var(--blue);
+    color: var(--gray);
+    width: 30px;
+    height: 80px;
+    margin: auto 1rem auto 0;
+    border-radius: 1rem;
+    border: 1px solid var(--pink);
+    outline: none;
+    transition: 0.2s;
 }
 
-#form .calc-button {
-    width: 2rem;
+#form .calc-button:active {
+    background-color: var(--pink);
+    color: var(--light);
 }
 
 .note p {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
 }
 
 .note input {
     display: block;
     background-color: var(--blue);
+    color: var(--light);
     width: 18rem;
     height: 2rem;
     margin: auto;
     text-align: center;
-    font-size: 1.25rem;
-    border: 1px solid pink;
-    border-radius: 10rem;
+    font-size: 1rem;
+    border: 1px solid var(--pink);
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.note:last-child {
+    margin-bottom: 3rem;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {
