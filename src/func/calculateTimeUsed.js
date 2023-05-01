@@ -11,7 +11,7 @@ function calculateTimeUsed(outInput, inInput) {
     let hourUsed = calcHour < 0 ? calcHour + 24 : calcHour;
     let minsUsed = 0;
 
-    // create logic for minutes used
+    // create logic for minutes and hours used
     if (calcMins < 0) {
         minsUsed = calcMins + 60;
         hourUsed--;
