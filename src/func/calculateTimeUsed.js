@@ -3,20 +3,20 @@ function calculateTimeUsed(outInput, inInput) {
     const outTime = outInput;
     const inTime = inInput;
 
-    // calculate hours and minutes used
-    const hour = inTime.slice(0, 2) - outTime.slice(0, 2);
-    const mins = inTime.slice(-2) - outTime.slice(-2);
+    // calculate out and in input together
+    const calcHour = inTime.slice(0, 2) - outTime.slice(0, 2);
+    const calcMins = inTime.slice(-2) - outTime.slice(-2);
 
     // calculate the time in 24-hour format
-    let hourUsed = hour < 0 ? hour + 24 : hour;
+    let hourUsed = calcHour < 0 ? calcHour + 24 : calcHour;
     let minsUsed = 0;
 
     // create logic for minutes used
-    if (mins < 0) {
-        minsUsed = mins + 60;
+    if (calcMins < 0) {
+        minsUsed = calcMins + 60;
         hourUsed--;
     } else {
-        minsUsed = mins;
+        minsUsed = calcMins;
     }
 
     return (
