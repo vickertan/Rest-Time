@@ -31,7 +31,7 @@ const App = () => {
                 minsLeft={minsLeft}
                 setMinsLeft={setMinsLeft}
             />
-            {/* <TimeHistory /> */}
+            <TimeHistory timeList="" />
             <div className="note">
                 <p>What did you have for lunch?</p>
                 <input type="text" />
