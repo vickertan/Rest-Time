@@ -5,6 +5,7 @@
     --gray: #6b7280;
     --light: #eee;
     --blue: #132553;
+    --light-pink: #cea4cc;
     --pink: #ff9df4;
     --red: #aa1e3a;
 }
@@ -25,13 +26,13 @@ body {
 
 p {
     text-align: center;
-    color: var(--light);
 }
 
 .indicator {
     margin-top: 1.25rem;
     margin-bottom: 1rem;
     font-size: 1.125rem;
+    color: var(--light);
 }
 
 #form {
@@ -120,20 +121,21 @@ p {
 
 .note p {
     font-size: 1.125rem;
+    color: var(--light);
 }
 
 .note input {
     display: block;
-    background-color: var(--blue);
-    color: var(--light);
+    background-color: var(--light-pink);
+    color: var(--darkest);
     width: 18rem;
     height: 2rem;
     margin: auto;
     text-align: center;
     font-size: 1rem;
-    border: 1px solid var(--pink);
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     outline: none;
+    border: none;
 }
 
 .note:last-child {
