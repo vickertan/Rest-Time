@@ -52,6 +52,9 @@ const CalcButton = forwardRef((props, ref) => {
                 const timeUsed = calculateTimeUsed(outTime, inTime);
                 props.setHourLeft(props.hourLeft - timeUsed.slice(0, 2));
                 props.setMinsLeft(props.minsLeft - timeUsed.slice(-2));
+
+                ref.outTimeRef.current.value = "";
+                ref.inTimeRef.current.value = "";
             } else {
                 // change input value color
                 console.log("Error: same input value");
