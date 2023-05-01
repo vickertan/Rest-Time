@@ -15,6 +15,9 @@ function calculateTimeUsed(outInput, inInput) {
     if (calcMins < 0) {
         minsUsed = calcMins + 60;
         hourUsed--;
+        if (hourUsed < 0) {
+            hourUsed += 24;
+        }
     } else {
         minsUsed = calcMins;
     }
