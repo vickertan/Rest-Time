@@ -1,4 +1,4 @@
-const TimeHistory = ({ timeList }) => {
+export default function TimeHistory({ timeList }) {
     return (
         <div className="time-history">
             {!timeList.length ? (
@@ -15,6 +15,4 @@ const TimeHistory = ({ timeList }) => {
             )}
         </div>
     );
-};
-
-export default TimeHistory;
+}
