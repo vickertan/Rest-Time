@@ -1,30 +1,22 @@
-export default function calcTimeUsed(outInput, inInput) {
-    // get the values of user's inputs
-    const outTime = outInput;
-    const inTime = inInput;
-
+export default function calcTotalMins(outInput, inInput) {
     // calculate out and in input together
-    const calcHour = inTime.slice(0, 2) - outTime.slice(0, 2);
-    const calcMins = inTime.slice(-2) - outTime.slice(-2);
+    let calcHour = inInput.slice(0, 2) - outInput.slice(0, 2);
+    let calcMins = inInput.slice(-2) - outInput.slice(-2);
 
     // calculate the time in 24-hour format
-    let hourUsed = calcHour < 0 ? calcHour + 24 : calcHour;
-    let minsUsed = 0;
+    calcHour = calcHour < 0 ? calcHour + 24 : calcHour;
 
     // create logic for minutes and hours used
     if (calcMins < 0) {
-        minsUsed = calcMins + 60;
-        hourUsed--;
-        if (hourUsed < 0) {
-            hourUsed += 24;
+        calcMins += 60;
+        calcHour--;
+        if (calcHour < 0) {
+            calcHour += 24;
         }
-    } else {
-        minsUsed = calcMins;
     }
 
-    const totalMinsUsed = hourUsed * 60 + minsUsed;
+    const timeUsed = calcHour + ":" + calcMins;
+    const totalMinsUsed = calcHour * 60 + calcMins;
 
-    return (
-        String(hourUsed).padStart(2, 0) + ":" + String(minsUsed).padStart(2, 0)
-    );
+    return totalMinsUsed;
 }
