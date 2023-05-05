@@ -1,4 +1,4 @@
-function calculateTimeUsed(outInput, inInput) {
+export default function calcTimeUsed(outInput, inInput) {
     // get the values of user's inputs
     const outTime = outInput;
     const inTime = inInput;
@@ -22,9 +22,9 @@ function calculateTimeUsed(outInput, inInput) {
         minsUsed = calcMins;
     }
 
+    const totalMinsUsed = hourUsed * 60 + minsUsed;
+
     return (
         String(hourUsed).padStart(2, 0) + ":" + String(minsUsed).padStart(2, 0)
     );
 }
-
-export default calculateTimeUsed;
