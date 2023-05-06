@@ -35,7 +35,8 @@ const ClockButton = forwardRef((props, ref) => {
     function getCurTime() {
         const hour = new Date().getHours();
         const mins = new Date().getMinutes();
-        const curTime = hour + ":" + String(mins).padStart(2, "0");
+        const curTime =
+            String(hour).padStart(2, "0") + ":" + String(mins).padStart(2, "0");
         ref.current.value = curTime;
     }
 
@@ -50,6 +51,7 @@ const CalcButton = forwardRef((props, ref) => {
         if (start && end) {
             if (start !== end) {
                 const totalMinsUsed = calcTotalMins(start, end);
+                console.log(props.hourLeft);
 
                 // let calculatedHour = props.hourLeft - timeUsed.slice(0, 2);
                 // let calculatedMins = props.minsLeft - timeUsed.slice(-2);

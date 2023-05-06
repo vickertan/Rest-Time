@@ -9,11 +9,19 @@ const App = () => {
         mins: 20,
     };
 
-    const [hourLimit, setHourLimit] = useState(limit.hour);
-    const [minsLimit, setMinsLimit] = useState(limit.mins);
+    const [hourLimit, setHourLimit] = useState(
+        String(limit.hour).padStart(2, "0")
+    );
+    const [minsLimit, setMinsLimit] = useState(
+        String(limit.mins).padStart(2, "0")
+    );
 
-    const [hourLeft, setHourLeft] = useState(limit.hour);
-    const [minsLeft, setMinsLeft] = useState(limit.mins);
+    const [hourLeft, setHourLeft] = useState(
+        String(limit.hour).padStart(2, "0")
+    );
+    const [minsLeft, setMinsLeft] = useState(
+        String(limit.mins).padStart(2, "0")
+    );
 
     return (
         <div className="content-box">
