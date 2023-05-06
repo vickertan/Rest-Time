@@ -15,7 +15,6 @@ export default function calcTotalMinsUsed(start, end) {
         }
     }
 
-    const timeUsed = calcHour + ":" + calcMins;
     const totalMinsUsed = calcHour * 60 + calcMins;
 
     return totalMinsUsed;
