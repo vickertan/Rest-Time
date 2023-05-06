@@ -77,6 +77,8 @@ const CalcButton = forwardRef((props, ref) => {
                     props.setHourLeft(curHourLeft);
                     props.setMinsLeft(curMinsLeft);
                 }
+
+                // set input value to empty
             } else {
                 // change input value color
                 console.log("Error: same input value");
