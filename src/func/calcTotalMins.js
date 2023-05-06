@@ -1,7 +1,7 @@
-export default function calcTotalMins(outInput, inInput) {
+export default function calcTotalMins(start, end) {
     // calculate out and in input together
-    let calcHour = inInput.slice(0, 2) - outInput.slice(0, 2);
-    let calcMins = inInput.slice(-2) - outInput.slice(-2);
+    let calcHour = end.slice(0, 2) - start.slice(0, 2);
+    let calcMins = end.slice(-2) - start.slice(-2);
 
     // calculate the time in 24-hour format
     calcHour = calcHour < 0 ? calcHour + 24 : calcHour;
