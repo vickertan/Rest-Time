@@ -1,5 +1,5 @@
 import { forwardRef, useRef } from "react";
-import calcTotalMins from "../func/calcTotalMins";
+import calcTotalMinsUsed from "../func/calcTotalMinsUsed";
 
 export default function TimeForm(props) {
     const outTimeRef = useRef(null);
@@ -50,8 +50,8 @@ const CalcButton = forwardRef((props, ref) => {
 
         if (start && end) {
             if (start !== end) {
-                const totalMinsUsed = calcTotalMins(start, end);
-                console.log(props.hourLeft);
+                const totalMinsUsed = calcTotalMinsUsed(start, end);
+                const totalMinsLeft = calcTotalMins();
 
                 // let calculatedHour = props.hourLeft - timeUsed.slice(0, 2);
                 // let calculatedMins = props.minsLeft - timeUsed.slice(-2);

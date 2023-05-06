@@ -1,4 +1,4 @@
-export default function calcTotalMins(start, end) {
+export default function calcTotalMinsUsed(start, end) {
     // calculate out and in input together
     let calcHour = end.slice(0, 2) - start.slice(0, 2);
     let calcMins = end.slice(-2) - start.slice(-2);
