@@ -1,6 +1,5 @@
 import { forwardRef, useRef } from "react";
 import calcTotalMins from "../func/calcTotalMins";
-import calculateTimeLeft from "../func/calculateTimeLeft";
 
 export default function TimeForm(props) {
     const outTimeRef = useRef(null);
