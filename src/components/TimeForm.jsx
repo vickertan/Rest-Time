@@ -51,21 +51,23 @@ const CalcButton = forwardRef((props, ref) => {
         if (start && end) {
             if (start !== end) {
                 const totalMinsUsed = calcTotalMinsUsed(start, end);
-                const totalMinsLeft = calcTotalMins();
+                let totalMinsLeft = +props.hourLeft * 60 + +props.minsLeft;
 
-                // let calculatedHour = props.hourLeft - timeUsed.slice(0, 2);
-                // let calculatedMins = props.minsLeft - timeUsed.slice(-2);
+                totalMinsLeft -= totalMinsUsed;
 
-                // if (calculatedMins < 0) {
-                //     calculatedMins += 60;
-                //     calculatedHour--;
-                // }
+                const hourLeft = String(
+                    Math.floor(totalMinsLeft / 60)
+                ).padStart(0, 2);
+                const minsLeft = String(
+                    Math.floor(totalMinsLeft % 60)
+                ).padStart(0, 2);
 
-                // props.setHourLeft(calculatedHour);
-                // props.setMinsLeft(calculatedMins);
-
-                // ref.outTimeRef.current.value = "";
-                // ref.inTimeRef.current.value = "";
+                if (totalMinsLeft < 0) {
+                    // change Time Left color to "danger"
+                } else {
+                    props.setHourLeft(hourLeft);
+                    props.setMinsLeft(minsLeft);
+                }
             } else {
                 // change input value color
                 console.log("Error: same input value");
