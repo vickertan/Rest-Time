@@ -44,12 +44,12 @@ const ClockButton = forwardRef((props, ref) => {
 
 const CalcButton = forwardRef((props, ref) => {
     function handleClick() {
-        let outTime = ref.outTimeRef.current.value;
-        let inTime = ref.inTimeRef.current.value;
+        let start = ref.outTimeRef.current.value;
+        let end = ref.inTimeRef.current.value;
 
-        if (outTime && inTime) {
-            if (outTime !== inTime) {
-                const totalMinsUsed = calcTotalMins(outTime, inTime);
+        if (start && end) {
+            if (start !== end) {
+                const totalMinsUsed = calcTotalMins(start, end);
 
                 // let calculatedHour = props.hourLeft - timeUsed.slice(0, 2);
                 // let calculatedMins = props.minsLeft - timeUsed.slice(-2);
