@@ -55,10 +55,10 @@ const CalcButton = forwardRef((props, ref) => {
 
                 totalMinsLeft -= totalMinsUsed;
 
-                const hourLeft = String(
+                const curHourLeft = String(
                     Math.floor(totalMinsLeft / 60)
                 ).padStart(2, 0);
-                const minsLeft = String(totalMinsLeft % 60).padStart(2, 0);
+                const curMinsLeft = String(totalMinsLeft % 60).padStart(2, 0);
 
                 if (totalMinsLeft < 0) {
                     // change Time Left color to "danger"
@@ -74,8 +74,8 @@ const CalcButton = forwardRef((props, ref) => {
                     props.setHourLeft(hourExceeded);
                     props.setMinsLeft(minsExceeded);
                 } else {
-                    props.setHourLeft(hourLeft);
-                    props.setMinsLeft(minsLeft);
+                    props.setHourLeft(curHourLeft);
+                    props.setMinsLeft(curMinsLeft);
                 }
             } else {
                 // change input value color
