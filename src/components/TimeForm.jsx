@@ -1,5 +1,6 @@
 import { forwardRef, useRef } from "react";
 import calcTotalMinsUsed from "../func/calcTotalMinsUsed";
+import convToMilTime from "../func/convToMilTime";
 
 export default function TimeForm(props) {
     const outTimeRef = useRef(null);
@@ -36,7 +37,7 @@ const ClockButton = forwardRef((props, ref) => {
         const hour = new Date().getHours();
         const mins = new Date().getMinutes();
         const curTime =
-            String(hour).padStart(2, "0") + ":" + String(mins).padStart(2, "0");
+            String(hour).padStart(2, 0) + ":" + String(mins).padStart(2, 0);
         ref.current.value = curTime;
     }
 
@@ -51,32 +52,30 @@ const CalcButton = forwardRef((props, ref) => {
         if (start && end) {
             if (start !== end) {
                 const totalMinsUsed = calcTotalMinsUsed(start, end);
-                let totalMinsLeft = props.hourLeft * 60 + +props.minsLeft;
+                let totalMinsLeft = +props.hourLeft * 60 + +props.minsLeft;
 
                 totalMinsLeft -= totalMinsUsed;
 
-                const curHourLeft = String(
-                    Math.floor(totalMinsLeft / 60)
-                ).padStart(2, 0);
-                const curMinsLeft = String(totalMinsLeft % 60).padStart(2, 0);
-
                 if (totalMinsLeft < 0) {
-                    // change Time Left color to "danger"
-
-                    const hourExceeded = String(
-                        Math.floor(totalMinsLeft / 60 + 1)
-                    ).padStart(2, 0);
-                    const minsExceeded = String(totalMinsLeft % 60).padStart(
-                        2,
-                        0
-                    );
-
-                    props.setHourLeft(hourExceeded);
-                    props.setMinsLeft(minsExceeded);
-                } else {
-                    props.setHourLeft(curHourLeft);
-                    props.setMinsLeft(curMinsLeft);
+                    props.setOverLimit(true);
                 }
+
+                const totalTimeLeft = convToMilTime(
+                    totalMinsLeft,
+                    props.overLimit
+                );
+
+                const nexH = totalTimeLeft.substring(
+                    0,
+                    totalTimeLeft.indexOf(":")
+                );
+                const nexM = totalTimeLeft.substring(
+                    totalTimeLeft.indexOf(":") + 1,
+                    totalTimeLeft.at(-1)
+                );
+
+                props.setHourLeft(nexH);
+                props.setMinsLeft(nexM);
 
                 // set input value to empty
             } else {
