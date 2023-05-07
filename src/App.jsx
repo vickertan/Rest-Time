@@ -5,9 +5,10 @@ import TimeHistory from "./components/TimeHistory";
 
 const App = () => {
     const limit = {
-        hour: 2,
-        mins: 20,
+        hour: 0,
+        mins: 10,
     };
+    const [overLimit, setOverLimit] = useState(false);
 
     const [hourLimit, setHourLimit] = useState(
         String(limit.hour).padStart(2, "0")
@@ -38,6 +39,8 @@ const App = () => {
                 setHourLeft={setHourLeft}
                 minsLeft={minsLeft}
                 setMinsLeft={setMinsLeft}
+                overLimit={overLimit}
+                setOverLimit={setOverLimit}
             />
             <TimeHistory timeList="" />
             <div className="note">
