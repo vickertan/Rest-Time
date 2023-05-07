@@ -1,21 +1,19 @@
 export default function calcTotalMinsUsed(start, end) {
-    // calculate out and in input together
-    let calcHour = end.slice(0, 2) - start.slice(0, 2);
-    let calcMins = end.slice(-2) - start.slice(-2);
+    // calculate hour and minutes difference
+    let hourDif = end.slice(0, 2) - start.slice(0, 2);
+    let minsDif = end.slice(-2) - start.slice(-2);
 
-    // calculate the time in 24-hour format
-    calcHour = calcHour < 0 ? calcHour + 24 : calcHour;
+    // set minimum limit hour difference to 0
+    hourDif = hourDif < 0 ? hourDif + 24 : hourDif;
 
-    // create logic for minutes and hours used
-    if (calcMins < 0) {
-        calcMins += 60;
-        calcHour--;
-        if (calcHour < 0) {
-            calcHour += 24;
+    if (minsDif < 0) {
+        minsDif += 60;
+        if (hourDif < 0) {
+            hourDif += 24;
         }
     }
 
-    const totalMinsUsed = calcHour * 60 + calcMins;
+    const totalMinsUsed = hourDif * 60 + minsDif;
 
     return totalMinsUsed;
 }
