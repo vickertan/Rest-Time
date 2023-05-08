@@ -5,8 +5,8 @@ import TimeHistory from "./components/TimeHistory";
 
 const App = () => {
     const limit = {
-        hour: 0,
-        mins: 10,
+        hour: 2,
+        mins: 20,
     };
     const [overLimit, setOverLimit] = useState(false);
 
