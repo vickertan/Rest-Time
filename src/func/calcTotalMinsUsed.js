@@ -8,6 +8,7 @@ export default function calcTotalMinsUsed(start, end) {
 
     if (minsDif < 0) {
         minsDif += 60;
+        hourDif--;
         if (hourDif < 0) {
             hourDif += 24;
         }
