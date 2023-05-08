@@ -1,11 +1,17 @@
-export default function convToMilTime(mins, overLimit) {
-    const min = mins % 60;
+export default function convToMilTime(totalMins, overLimit) {
+    let min = totalMins % 60;
     let hour = 0;
 
-    if (mins < 0) {
-        hour = Math.ceil(mins / 60);
+    if (totalMins < 0) {
+        hour = Math.ceil(totalMins / 60);
+        if (min < 0 && min > -10) {
+            min = String(min).replace("-", "-0");
+        }
+        if (hour > -10) {
+            hour = String(hour).replace("-", "-0");
+        }
     } else {
-        hour = Math.floor(mins / 60);
+        hour = Math.floor(totalMins / 60);
     }
 
     let milTime =
