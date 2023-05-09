@@ -8,6 +8,12 @@ const App = () => {
         hour: 2,
         mins: 20,
     };
+
+    const [timeList, setTimeList] = useState({
+        time: [],
+        id: 0,
+    });
+
     const [overLimit, setOverLimit] = useState(false);
 
     const [hourLimit, setHourLimit] = useState(
@@ -41,8 +47,10 @@ const App = () => {
                 setMinsLeft={setMinsLeft}
                 overLimit={overLimit}
                 setOverLimit={setOverLimit}
+                timeList={timeList}
+                setTimeList={setTimeList}
             />
-            <TimeHistory timeList="" />
+            <TimeHistory timeList={timeList} />
             <div className="note">
                 <p>What did you have for lunch?</p>
                 <input type="text" />
