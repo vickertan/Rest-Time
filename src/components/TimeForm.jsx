@@ -73,15 +73,10 @@ const CalcButton = forwardRef((props, ref) => {
                 );
 
                 // set hour value to the left side of :
-                props.setHourLeft(
-                    totalTimeLeft.substring(0, totalTimeLeft.indexOf(":"))
-                );
+                props.setHourLeft(totalTimeLeft.split(":")[0]);
 
                 // set mins value to the right side of :
-                props.setMinsLeft(
-                    totalTimeLeft.substring(totalTimeLeft.indexOf(":") + 1),
-                    totalTimeLeft.at(-1)
-                );
+                props.setMinsLeft(totalTimeLeft.split(":")[1]);
 
                 // set input value to empty
             } else {
