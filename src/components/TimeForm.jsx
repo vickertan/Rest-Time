@@ -65,10 +65,12 @@ const CalcButton = forwardRef((props, ref) => {
                     props.overLimit
                 );
 
-                // set hour and mins left to get all the value before and after :
+                // set hour value to the left side of :
                 props.setHourLeft(
                     totalTimeLeft.substring(0, totalTimeLeft.indexOf(":"))
                 );
+
+                // set mins value to the right side of :
                 props.setMinsLeft(
                     totalTimeLeft.substring(totalTimeLeft.indexOf(":") + 1),
                     totalTimeLeft.at(-1)
