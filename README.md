@@ -1,6 +1,6 @@
 ## To Do List
 
 -   Create history of out and in times
-    -   Return timeList as object (timeOut, timeIn)
+    -   map timeList and return it in component
 -   Create proper style for visualisation
 -   Remove unused color in css
