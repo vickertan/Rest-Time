@@ -118,6 +118,10 @@ p {
     color: var(--light);
 }
 
+.time-history p {
+    color: var(--light);
+}
+
 .note p {
     font-size: 1.125rem;
     color: var(--light);
