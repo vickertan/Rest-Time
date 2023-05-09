@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    height: fit-content;
+    min-height: 875px;
     margin: auto;
     border: 1px solid var(--pink);
     border-radius: 1rem;
@@ -29,18 +29,16 @@ p {
 }
 
 .indicator {
-    margin-top: 1.25rem;
-    margin-bottom: 1rem;
+    margin: 1.5rem auto 0.5rem;
     font-size: 1.125rem;
     color: var(--light);
 }
 
 #form {
     font-size: 1.2rem;
-    margin: auto;
+    margin: 0 auto 2rem;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2rem;
     height: fit-content;
     width: 18rem;
     border: 1px solid var(--pink);
@@ -118,8 +116,15 @@ p {
     color: var(--light);
 }
 
-.time-history p {
-    color: var(--light);
+.time-history {
+    margin: 1rem 0 3rem;
+    border-top: 1px solid var(--pink);
+    border-bottom: 1px solid var(--pink);
+    border-radius: 3rem;
+}
+
+.time-history .default {
+    color: var(--gray);
 }
 
 .note p {
