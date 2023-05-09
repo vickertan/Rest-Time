@@ -49,13 +49,6 @@ const CalcButton = forwardRef((props, ref) => {
         let start = ref.outTimeRef.current.value;
         let end = ref.inTimeRef.current.value;
 
-        props.setTimeList({
-            time: [...props.timeList.time, { timeOut: start, timeIn: end }],
-            id: props.timeList.id + 1,
-        });
-
-        console.log(props.timeList.time);
-
         if (start && end) {
             if (start !== end) {
                 const totalMinsUsed = calcTotalMinsUsed(start, end);
@@ -77,6 +70,9 @@ const CalcButton = forwardRef((props, ref) => {
 
                 // set mins value to the right side of :
                 props.setMinsLeft(totalTimeLeft.split(":")[1]);
+
+                // update timeList record
+                props.setTimeList([...props.timeList, { out: start, in: end }]);
 
                 // set input value to empty
             } else {
