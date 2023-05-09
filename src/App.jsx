@@ -9,10 +9,7 @@ const App = () => {
         mins: 20,
     };
 
-    const [timeList, setTimeList] = useState({
-        time: [],
-        id: 0,
-    });
+    const [timeList, setTimeList] = useState([]);
 
     const [overLimit, setOverLimit] = useState(false);
 
