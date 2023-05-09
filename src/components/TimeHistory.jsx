@@ -7,8 +7,8 @@ export default function TimeHistory({ timeList }) {
                 timeList.map((index, time) => {
                     return (
                         <div key={index} className="record">
-                            <p>O. {time.timeOut}</p>
-                            <p>I. {time.timeIn}</p>
+                            <p className="history-time">O. {time.timeOut}</p>
+                            <p className="history-time">I. {time.timeIn}</p>
                         </div>
                     );
                 })
