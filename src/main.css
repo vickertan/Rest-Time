@@ -117,14 +117,29 @@ p {
 }
 
 .time-history {
+    display: flex;
+    height: 200px;
     margin: 1rem 0 3rem;
     border-top: 1px solid var(--pink);
     border-bottom: 1px solid var(--pink);
     border-radius: 3rem;
+    overflow-x: scroll;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-history::-webkit-scrollbar {
+    display: none;
 }
 
 .time-history .default {
     color: var(--gray);
+    margin: auto;
+}
+
+.time-history .record {
+    margin: 0 1rem;
+    color: var(--light);
 }
 
 .note p {
