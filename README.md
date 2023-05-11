@@ -1,6 +1,8 @@
 ## To Do List
 
--   Set absolute size for .record
--   Reset out and in time on calcButton click
--   Create proper style for history record box
+-   Store data to prevent data loss on page refresh
+    -   Try firebase
+-   Add reset button
+-   Change "time left" color to red when over-limit
+-   Add warning indicator when user's input is not qualified (empty or same)
 -   Remove unused color in css
