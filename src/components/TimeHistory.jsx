@@ -4,9 +4,11 @@ export default function TimeHistory({ timeList }) {
             {!timeList.length ? (
                 <p className="default">No record yet</p>
             ) : (
-                timeList.map((time, index) => (
-                    <Record time={time} id={index} key={index} />
-                ))
+                <div className="inner-history-box">
+                    {timeList.map((time, index) => (
+                        <Record time={time} id={index} key={index} />
+                    ))}
+                </div>
             )}
         </div>
     );
@@ -17,8 +19,9 @@ function Record({ time, id }) {
         <div id={id} className="record">
             <p className="sequence">{id + 1}</p>
             <div className="time-section">
-                <p>O. {time.out}</p>
-                <p>I. {time.in}</p>
+                <p>Out. {time.out}</p>
+                <hr />
+                <p>In. {time.in}</p>
             </div>
         </div>
     );
