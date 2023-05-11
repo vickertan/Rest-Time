@@ -74,7 +74,8 @@ const CalcButton = forwardRef((props, ref) => {
                 // update timeList record
                 props.setTimeList([...props.timeList, { out: start, in: end }]);
 
-                // set input value to empty
+                ref.outTimeRef.current.value = "";
+                ref.inTimeRef.current.value = "";
             } else {
                 // change input value color
 
