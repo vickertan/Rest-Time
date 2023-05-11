@@ -123,13 +123,6 @@ p {
     border-top: 1px solid var(--pink);
     border-bottom: 1px solid var(--pink);
     border-radius: 3rem;
-    overflow-x: scroll;
-    justify-content: center;
-    align-items: center;
-}
-
-.time-history::-webkit-scrollbar {
-    display: none;
 }
 
 .time-history .default {
@@ -137,9 +130,55 @@ p {
     margin: auto;
 }
 
-.time-history .record {
-    margin: 0 1rem;
+.time-history .inner-history-box {
+    display: grid;
+    gap: 1rem;
+    height: 165px;
+    width: 85%;
+    margin: auto;
+    overflow: scroll;
+}
+
+.time-history .inner-history-box::-webkit-scrollbar {
+    display: none;
+}
+
+.inner-history-box .record {
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 100px;
+    margin: auto;
+    padding: 0.3rem;
+    border: 1px solid var(--pink);
+    border-radius: 1rem;
+}
+
+.inner-history-box .record .sequence {
     color: var(--light);
+    width: 20px;
+    height: 100%;
+    margin: auto 6px auto 0;
+    line-height: 50px;
+    border-right: 1px solid var(--pink);
+}
+
+.inner-history-box .record .time-section {
+    color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+}
+
+.inner-history-box .record .time-section hr {
+    width: 100%;
+    margin: 1px;
+    border: 0.5px solid var(--pink);
+}
+
+.inner-history-box .record .time-section p {
+    margin: 3px 0 3px auto;
 }
 
 .note p {
