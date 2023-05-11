@@ -4,14 +4,14 @@
     --darkest: #111827;
     --gray: #6b7280;
     --light: #eee;
-    --blue: #132553;
+    --dark-blue: #162242;
     --light-pink: #cea4cc;
     --pink: #ff9df4;
     --red: #aa1e3a;
 }
 
 body {
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
 }
 
 .content-box {
@@ -51,7 +51,7 @@ p {
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
 }
 
 #form .time-div label,
@@ -74,7 +74,7 @@ p {
 #form .time-div input {
     width: 50%;
     height: auto;
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
     color: var(--light);
     border: 1px solid var(--pink);
     border-radius: 0.5rem;
@@ -89,7 +89,7 @@ p {
 }
 
 .time-div div .clock-button {
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
@@ -100,7 +100,7 @@ p {
 }
 
 #form .calc-button {
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
     color: var(--gray);
     width: 30px;
     height: 80px;
