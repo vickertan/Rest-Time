@@ -118,6 +118,7 @@ p {
 
 .time-history {
     display: flex;
+    flex-direction: column;
     height: 200px;
     margin: 1rem 0 3rem;
     border-top: 1px solid var(--pink);
@@ -179,6 +180,13 @@ p {
 
 .inner-history-box .record .time-section p {
     margin: 3px 0 3px auto;
+}
+
+.time-history .total-box {
+    border-top: 1px solid var(--pink);
+    border-top-style: dashed;
+    border-radius: 50%;
+    color: var(--gray);
 }
 
 .note p {
