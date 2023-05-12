@@ -52,7 +52,7 @@ const CalcButton = forwardRef((props, ref) => {
         if (start && end) {
             if (start !== end) {
                 const minsUsed = calcMinsUsed(start, end);
-                props.set;
+                props.setTotalMinsUsed(props.totalMinsUsed + minsUsed);
 
                 let totalMinsLeft = +props.hourLeft * 60 + +props.minsLeft;
 
