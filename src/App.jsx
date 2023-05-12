@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
 
@@ -10,7 +10,6 @@ const App = () => {
     };
 
     const [timeList, setTimeList] = useState([]);
-
     const [overLimit, setOverLimit] = useState(false);
 
     const [hourLimit, setHourLimit] = useState(
@@ -19,7 +18,6 @@ const App = () => {
     const [minsLimit, setMinsLimit] = useState(
         String(limit.mins).padStart(2, "0")
     );
-
     const [hourLeft, setHourLeft] = useState(
         String(limit.hour).padStart(2, "0")
     );
@@ -28,6 +26,48 @@ const App = () => {
     );
 
     const [totalMinsUsed, setTotalMinsUsed] = useState(0);
+
+    // keeps time left's state in local storage
+    useEffect(() => {
+        const milTimeLeft_S = JSON.parse(localStorage.getItem("milTimeLeft"));
+        if (milTimeLeft_S) {
+            setHourLeft(milTimeLeft_S.split(":")[0]);
+            setMinsLeft(milTimeLeft_S.split(":")[1]);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem(
+            "milTimeLeft",
+            JSON.stringify(hourLeft + ":" + minsLeft)
+        );
+    }, [hourLeft, minsLeft]);
+
+    // keeps timeList in local storage
+    useEffect(() => {
+        const timeList_S = JSON.parse(localStorage.getItem("timeList"));
+        if (timeList_S) {
+            setTimeList(timeList_S);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("timeList", JSON.stringify(timeList));
+    }, [timeList]);
+
+    // keeps totalMinsUsed in local storage
+    useEffect(() => {
+        const totalMinsUsed_S = JSON.parse(
+            localStorage.getItem("totalMinsUsed")
+        );
+        if (totalMinsUsed_S) {
+            setTotalMinsUsed(totalMinsUsed_S);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("totalMinsUsed", JSON.stringify(totalMinsUsed));
+    }, [totalMinsUsed]);
 
     return (
         <div className="content-box">
