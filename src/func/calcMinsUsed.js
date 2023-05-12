@@ -14,7 +14,7 @@ export default function calcMinsUsed(start, end) {
         }
     }
 
-    const minsUsed = hourDif * 60 + minsDif;
+    const curMinsUsed = hourDif * 60 + minsDif;
 
-    return minsUsed;
+    return curMinsUsed;
 }

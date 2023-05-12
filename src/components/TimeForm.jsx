@@ -51,12 +51,12 @@ const CalcButton = forwardRef((props, ref) => {
 
         if (start && end) {
             if (start !== end) {
-                const minsUsed = calcMinsUsed(start, end);
-                props.setTotalMinsUsed(props.totalMinsUsed + minsUsed);
+                const curMinsUsed = calcMinsUsed(start, end);
+                props.setTotalMinsUsed(props.totalMinsUsed + curMinsUsed);
 
                 let totalMinsLeft = +props.hourLeft * 60 + +props.minsLeft;
 
-                totalMinsLeft -= minsUsed;
+                totalMinsLeft -= curMinsUsed;
 
                 if (totalMinsLeft < 0) {
                     props.setOverLimit(true);
