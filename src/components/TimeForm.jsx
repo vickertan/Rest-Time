@@ -1,5 +1,5 @@
 import { forwardRef, useRef } from "react";
-import calcTotalMinsUsed from "../func/calcTotalMinsUsed";
+import calcMinsUsed from "../func/calcMinsUsed";
 import convToMilTime from "../func/convToMilTime";
 
 export default function TimeForm(props) {
@@ -51,10 +51,12 @@ const CalcButton = forwardRef((props, ref) => {
 
         if (start && end) {
             if (start !== end) {
-                const totalMinsUsed = calcTotalMinsUsed(start, end);
+                const minsUsed = calcMinsUsed(start, end);
+                props.set;
+
                 let totalMinsLeft = +props.hourLeft * 60 + +props.minsLeft;
 
-                totalMinsLeft -= totalMinsUsed;
+                totalMinsLeft -= minsUsed;
 
                 if (totalMinsLeft < 0) {
                     props.setOverLimit(true);

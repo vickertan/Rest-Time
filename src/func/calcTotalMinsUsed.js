@@ -1,4 +1,4 @@
-export default function calcTotalMinsUsed(start, end) {
+export default function calcMinsUsed(start, end) {
     // calculate hour and minutes difference
     let hourDif = end.slice(0, 2) - start.slice(0, 2);
     let minsDif = end.slice(-2) - start.slice(-2);
@@ -14,7 +14,7 @@ export default function calcTotalMinsUsed(start, end) {
         }
     }
 
-    const totalMinsUsed = hourDif * 60 + minsDif;
+    const minsUsed = hourDif * 60 + minsDif;
 
-    return totalMinsUsed;
+    return minsUsed;
 }
