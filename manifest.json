@@ -16,7 +16,7 @@
     ],
     "theme_color": "#FFF",
     "background_color": "#FFF",
-    "start_url": "https://Rest-Time.vercel.app/",
+    "start_url": "https://rest-time.vercel.app/",
     "display": "standalone",
     "orientation": "portrait"
 }
