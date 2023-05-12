@@ -60,10 +60,7 @@ const CalcButton = forwardRef((props, ref) => {
                     props.setOverLimit(true);
                 }
 
-                const totalTimeLeft = convToMilTime(
-                    totalMinsLeft,
-                    props.overLimit
-                );
+                const totalTimeLeft = convToMilTime(totalMinsLeft);
 
                 // set hour value to the left side of :
                 props.setHourLeft(totalTimeLeft.split(":")[0]);

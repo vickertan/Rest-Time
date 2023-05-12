@@ -1,4 +1,4 @@
-export default function convToMilTime(totalMins, overLimit) {
+export default function convToMilTime(totalMins) {
     let min = totalMins % 60;
     let hour = 0;
 
