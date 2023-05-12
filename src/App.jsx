@@ -27,6 +27,8 @@ const App = () => {
         String(limit.mins).padStart(2, "0")
     );
 
+    const [totalMinsUsed, setTotalMinsUsed] = useState(0);
+
     return (
         <div className="content-box">
             <div className="indicator">
@@ -46,8 +48,10 @@ const App = () => {
                 setOverLimit={setOverLimit}
                 timeList={timeList}
                 setTimeList={setTimeList}
+                totalMinsUsed={totalMinsUsed}
+                setTotalMinsUsed={setTotalMinsUsed}
             />
-            <TimeHistory timeList={timeList} />
+            <TimeHistory timeList={timeList} totalMinsUsed={totalMinsUsed} />
             <div className="note">
                 <p>What did you have for lunch?</p>
                 <input type="text" />
