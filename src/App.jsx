@@ -29,7 +29,6 @@ const App = () => {
             setMinsLeft(milTimeLeft_S.split(":")[1]);
         }
     }, []);
-
     useEffect(() => {
         localStorage.setItem(
             "milTimeLeft",
@@ -44,7 +43,6 @@ const App = () => {
             setTimeList(timeList_S);
         }
     }, []);
-
     useEffect(() => {
         localStorage.setItem("timeList", JSON.stringify(timeList));
     }, [timeList]);
@@ -58,7 +56,6 @@ const App = () => {
             setTotalMinsUsed(totalMinsUsed_S);
         }
     }, []);
-
     useEffect(() => {
         localStorage.setItem("totalMinsUsed", JSON.stringify(totalMinsUsed));
     }, [totalMinsUsed]);
