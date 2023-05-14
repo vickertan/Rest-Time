@@ -18,6 +18,8 @@ const App = () => {
     const [minsLimit, setMinsLimit] = useState(validMins);
     const [hourLeft, setHourLeft] = useState(validHour);
     const [minsLeft, setMinsLeft] = useState(validMins);
+    const [note1, setNote1] = useState("");
+    const [note2, setNote2] = useState("");
 
     const [totalMinsUsed, setTotalMinsUsed] = useState(0);
 
@@ -60,6 +62,27 @@ const App = () => {
         localStorage.setItem("totalMinsUsed", JSON.stringify(totalMinsUsed));
     }, [totalMinsUsed]);
 
+    // keeping note(s) in local storage
+    useEffect(() => {
+        const note1_S = JSON.parse(localStorage.getItem("note1"));
+        if (note1_S) {
+            setNote1(note1_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("note1", JSON.stringify(note1));
+    }, [note1]);
+
+    useEffect(() => {
+        const note2_S = JSON.parse(localStorage.getItem("note2"));
+        if (note2_S) {
+            setNote2(note2_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("note2", JSON.stringify(note2));
+    }, [note2]);
+
     return (
         <div className="content-box">
             <div className="indicator">
@@ -94,9 +117,17 @@ const App = () => {
             />
             <div className="note">
                 <p>What did you have for lunch?</p>
-                <input type="text" />
+                <input
+                    type="text"
+                    value={note1}
+                    onChange={(e) => setNote1(e.target.value)}
+                />
                 <p>What did you have for dinner?</p>
-                <input type="text" />
+                <input
+                    type="text"
+                    value={note2}
+                    onChange={(e) => setNote2(e.target.value)}
+                />
             </div>
         </div>
     );
