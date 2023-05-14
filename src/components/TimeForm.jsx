@@ -1,15 +1,40 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef, useRef, useState, useEffect } from "react";
 import calcMinsUsed from "../func/calcMinsUsed";
 import convToMilTime from "../func/convToMilTime";
 
 export default function TimeForm(props) {
-    function getCurTime(ref) {
+    function getCurTime(setInput) {
         const hour = new Date().getHours();
         const mins = new Date().getMinutes();
         const curTime =
             String(hour).padStart(2, 0) + ":" + String(mins).padStart(2, 0);
-        ref.current.value = curTime;
+        setInput(curTime);
     }
+
+    const [outInput, setOutInput] = useState("");
+    const [inInput, setInInput] = useState("");
+
+    // outInput
+    useEffect(() => {
+        const outInput_S = JSON.parse(localStorage.getItem("outInput"));
+        if (outInput_S) {
+            setOutInput(outInput_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("outInput", JSON.stringify(outInput));
+    }, [outInput]);
+
+    // inInput
+    useEffect(() => {
+        const inInput_S = JSON.parse(localStorage.getItem("inInput"));
+        if (inInput_S) {
+            setInInput(inInput_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("inInput", JSON.stringify(inInput));
+    }, [inInput]);
 
     const outTimeRef = useRef(null);
     const inTimeRef = useRef(null);
@@ -22,12 +47,18 @@ export default function TimeForm(props) {
                     <button
                         ref={outTimeRef}
                         className="clock-button"
-                        onClick={() => getCurTime(outTimeRef)}
+                        onClick={() => getCurTime(setOutInput)}
                     ></button>
                     <input
                         ref={outTimeRef}
                         id="out-time"
                         type="time"
+                        value={outInput}
+                        onChange={(e) => {
+                            setOutInput(e.target.value);
+
+                            // update local storage of outInput on value change
+                        }}
                         required
                     />
                 </div>
@@ -38,12 +69,28 @@ export default function TimeForm(props) {
                     <button
                         ref={inTimeRef}
                         className="clock-button"
-                        onClick={() => getCurTime(inTimeRef)}
+                        onClick={() => getCurTime(setInInput)}
                     ></button>
-                    <input ref={inTimeRef} id="in-time" type="time" required />
+                    <input
+                        ref={inTimeRef}
+                        id="in-time"
+                        type="time"
+                        value={inInput}
+                        onChange={(e) => {
+                            setInInput(e.target.value);
+
+                            // update local storage of inInput on value change
+                        }}
+                        required
+                    />
                 </div>
             </div>
-            <CalcButton {...props} ref={{ outTimeRef, inTimeRef }} />
+            <CalcButton
+                {...props}
+                ref={{ outTimeRef, inTimeRef }}
+                setOutInput={setOutInput}
+                setInInput={setInInput}
+            />
         </div>
     );
 }
@@ -77,8 +124,8 @@ const CalcButton = forwardRef((props, ref) => {
                 // update timeList record
                 props.setTimeList([...props.timeList, { out: start, in: end }]);
 
-                ref.outTimeRef.current.value = "";
-                ref.inTimeRef.current.value = "";
+                props.setOutInput("");
+                props.setInInput("");
             } else {
                 // change input value color
 
