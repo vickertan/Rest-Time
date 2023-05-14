@@ -3,6 +3,14 @@ import calcMinsUsed from "../func/calcMinsUsed";
 import convToMilTime from "../func/convToMilTime";
 
 export default function TimeForm(props) {
+    function getCurTime(ref) {
+        const hour = new Date().getHours();
+        const mins = new Date().getMinutes();
+        const curTime =
+            String(hour).padStart(2, 0) + ":" + String(mins).padStart(2, 0);
+        ref.current.value = curTime;
+    }
+
     const outTimeRef = useRef(null);
     const inTimeRef = useRef(null);
 
@@ -11,7 +19,11 @@ export default function TimeForm(props) {
             <div className="time-div">
                 <label htmlFor="out-time">T. Out</label>
                 <div>
-                    <ClockButton ref={outTimeRef} />
+                    <button
+                        ref={outTimeRef}
+                        className="clock-button"
+                        onClick={() => getCurTime(outTimeRef)}
+                    ></button>
                     <input
                         ref={outTimeRef}
                         id="out-time"
@@ -23,7 +35,11 @@ export default function TimeForm(props) {
                     T. In
                 </label>
                 <div>
-                    <ClockButton ref={inTimeRef} />
+                    <button
+                        ref={inTimeRef}
+                        className="clock-button"
+                        onClick={() => getCurTime(inTimeRef)}
+                    ></button>
                     <input ref={inTimeRef} id="in-time" type="time" required />
                 </div>
             </div>
@@ -31,18 +47,6 @@ export default function TimeForm(props) {
         </div>
     );
 }
-
-const ClockButton = forwardRef((props, ref) => {
-    function getCurTime() {
-        const hour = new Date().getHours();
-        const mins = new Date().getMinutes();
-        const curTime =
-            String(hour).padStart(2, 0) + ":" + String(mins).padStart(2, 0);
-        ref.current.value = curTime;
-    }
-
-    return <button className="clock-button" onClick={getCurTime}></button>;
-});
 
 const CalcButton = forwardRef((props, ref) => {
     function handleClick() {
