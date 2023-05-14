@@ -12,12 +12,17 @@ export default function TimeHistory({
 }) {
     function handleReset() {
         if (
-            confirm("Deleted data can't be retrieved. Do you want to proceed?")
+            prompt(
+                "Deleted record(s) can't be retrieved.",
+                'type "clear-all" to proceed'
+            ) == "clear-all"
         ) {
             setTimeList([]);
             setHourLeft(hourLimit);
             setMinsLeft(minsLimit);
             setTotalMinsUsed(0);
+        } else {
+            alert("Record(s) delete cancelled by user");
         }
     }
 
