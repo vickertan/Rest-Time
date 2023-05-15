@@ -14,8 +14,7 @@ Inspired by: [Apple](https://www.instagram.com/evelynzhangg/)
 -   Add feature to single delete time list
 -   TotalMinsUsed will be increased according to the deleted minsUsed
 -   Inbalance input box size in ios (safari)
--   Fix ClockButton not rendering on mobile device
--   Fix manifest.json icon
+-   Safari on IOS doesn't support link rel icon (find other alternative)
 -   Change "time left" color to red when over-limit
 -   Add warning indicator when user's input is not qualified (empty or same)
 -   Remove unused color in css
