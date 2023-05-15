@@ -3,13 +3,13 @@
     "short_name": "Break",
     "icons": [
         {
-            "src": "./assets/break-icon.png",
+            "src": "./assets/rest-icon.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "./assets/break-icon.png",
+            "src": "./assets/rest-icon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
