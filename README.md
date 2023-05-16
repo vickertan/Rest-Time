@@ -13,7 +13,6 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 
 -   Add feature to single delete time list
 -   TotalMinsUsed will be increased according to the deleted minsUsed
--   Inbalance input box size in ios (safari 15.6.1 iOS 16.4.1)
 -   Change "time left" color to red when over-limit
 -   Add warning indicator when user's input is not qualified (empty or same)
 -   Remove unused color in css
