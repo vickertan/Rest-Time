@@ -73,9 +73,8 @@ p {
 
 #form .time-div input {
     display: flex;
-    width: 50%;
+    width: 120px;
     height: auto;
-    padding: 0 0.5rem;
     background-color: var(--dark-blue);
     color: var(--light);
     border: 1px solid var(--pink);
