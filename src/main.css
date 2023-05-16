@@ -142,8 +142,8 @@ p {
 }
 
 .time-history .inner-history-box {
+    justify-content: safe center;
     display: grid;
-    gap: 16px;
     height: 165px;
     width: 85%;
     margin: auto;
@@ -155,7 +155,6 @@ p {
 }
 
 .inner-history-box .record {
-    position: static;
     grid-row: 1;
     display: flex;
     flex-direction: row;
