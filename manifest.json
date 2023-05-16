@@ -14,8 +14,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#FFF",
-    "background_color": "#FFF",
+    "theme_color": "#000",
+    "background_color": "#000",
     "start_url": "https://rest-time.vercel.app/",
     "display": "standalone",
     "orientation": "portrait"
