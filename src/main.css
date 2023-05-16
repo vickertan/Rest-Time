@@ -155,6 +155,7 @@ p {
 }
 
 .inner-history-box .record {
+    position: static;
     grid-row: 1;
     display: flex;
     flex-direction: row;
