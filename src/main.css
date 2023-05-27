@@ -62,8 +62,14 @@ p {
 
 #form .time-div label {
     width: fit-content;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-left: 1rem;
+    transition: 0.5s;
+}
+
+#form .time-div .active {
+    color: var(--pink);
+    margin-left: 50%;
 }
 
 #form .time-div div {
