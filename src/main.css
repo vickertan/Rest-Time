@@ -98,6 +98,11 @@ p {
     background-size: auto 100%;
     outline: none;
     border: none;
+    transition: 0.1s ease-in-out;
+}
+
+.time-div div .clock-button:active {
+    background-image: url("../assets/active-trans-clock-icon.png");
 }
 
 #form .calc-button {
