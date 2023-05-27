@@ -11,6 +11,7 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 
 ## To Do List
 
+-   Add break duration
 -   Add feature to single delete time list
 -   TotalMinsUsed will be increased according to the deleted minsUsed
 -   Change "time left" color to red when over-limit
