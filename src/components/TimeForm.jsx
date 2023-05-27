@@ -11,8 +11,27 @@ export default function TimeForm(props) {
         setInput(curTime);
     }
 
+    const outTimeRef = useRef(null);
+    const inTimeRef = useRef(null);
     const [outInput, setOutInput] = useState("");
     const [inInput, setInInput] = useState("");
+    const [outActive, setOutActive] = useState(false);
+    const [inActive, setInActive] = useState(false);
+
+    useEffect(() => {
+        if (outInput) {
+            setOutActive(true);
+        } else {
+            setOutActive(false);
+        }
+    }, [outInput]);
+    useEffect(() => {
+        if (inInput) {
+            setInActive(true);
+        } else {
+            setInActive(false);
+        }
+    }, [inInput]);
 
     // outInput
     useEffect(() => {
@@ -36,18 +55,44 @@ export default function TimeForm(props) {
         localStorage.setItem("inInput", JSON.stringify(inInput));
     }, [inInput]);
 
-    const outTimeRef = useRef(null);
-    const inTimeRef = useRef(null);
+    // outActive
+    useEffect(() => {
+        const outActive_S = JSON.parse(localStorage.getItem("outActive"));
+        if (outActive_S) {
+            setOutActive(outActive_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("outActive", JSON.stringify(outActive));
+    }, [outActive]);
+
+    // inActive
+    useEffect(() => {
+        const inActive_S = JSON.parse(localStorage.getItem("inActive"));
+        if (inActive_S) {
+            setInActive(inActive_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("inActive", JSON.stringify(inActive));
+    }, [inActive]);
 
     return (
         <div id="form">
             <div className="time-div">
-                <label htmlFor="out-time">T. Out</label>
+                <label
+                    className={outActive ? "active" : undefined}
+                    htmlFor="out-time"
+                >
+                    T. Out
+                </label>
                 <div>
                     <button
                         ref={outTimeRef}
                         className="clock-button"
-                        onClick={() => getCurTime(setOutInput)}
+                        onClick={() => {
+                            getCurTime(setOutInput);
+                        }}
                     ></button>
                     <input
                         ref={outTimeRef}
@@ -56,20 +101,23 @@ export default function TimeForm(props) {
                         value={outInput}
                         onChange={(e) => {
                             setOutInput(e.target.value);
-
-                            // update local storage of outInput on value change
                         }}
                         required
                     />
                 </div>
-                <label className="in-time" htmlFor="in-time">
+                <label
+                    className={inActive ? "active" : undefined}
+                    htmlFor="in-time"
+                >
                     T. In
                 </label>
                 <div>
                     <button
                         ref={inTimeRef}
                         className="clock-button"
-                        onClick={() => getCurTime(setInInput)}
+                        onClick={() => {
+                            getCurTime(setInInput);
+                        }}
                     ></button>
                     <input
                         ref={inTimeRef}
@@ -78,8 +126,6 @@ export default function TimeForm(props) {
                         value={inInput}
                         onChange={(e) => {
                             setInInput(e.target.value);
-
-                            // update local storage of inInput on value change
                         }}
                         required
                     />
