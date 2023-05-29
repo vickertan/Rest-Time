@@ -46,7 +46,7 @@ p {
     padding: 1rem;
 }
 
-#form .time-div {
+#form .left-div {
     flex: 1 1 0%;
     display: flex;
     flex-direction: column;
@@ -54,30 +54,30 @@ p {
     background-color: var(--dark-blue);
 }
 
-#form .time-div label,
-#form .time-div div {
+#form .left-div label,
+#form .left-div div {
     margin: 0.25rem 0.25rem;
     color: var(--light);
 }
 
-#form .time-div label {
+#form .left-div label {
     width: fit-content;
     font-size: 0.8rem;
     margin-left: 1rem;
     transition: 0.5s;
 }
 
-#form .time-div .active {
+#form .left-div .active {
     color: var(--pink);
     margin-left: 50%;
 }
 
-#form .time-div div {
+#form .left-div div {
     display: flex;
     flex-direction: row;
 }
 
-#form .time-div input {
+#form .left-div input {
     display: flex;
     width: 120px;
     height: auto;
@@ -91,11 +91,11 @@ p {
     outline: none;
 }
 
-#form .time-div .in-time {
+#form .left-div .in-time {
     margin-top: 1rem;
 }
 
-.time-div div .clock-button {
+.left-div div .clock-button {
     background-color: transparent;
     width: 2rem;
     height: 2rem;
@@ -107,7 +107,7 @@ p {
     transition: 0.2s ease-in-out;
 }
 
-.time-div div .clock-button:active {
+.left-div div .clock-button:active {
     background-image: url("../assets/trans-clock-icon-pink.png");
 }
 
