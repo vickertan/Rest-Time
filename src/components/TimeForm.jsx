@@ -102,7 +102,6 @@ export default function TimeForm(props) {
                         onChange={(e) => {
                             setOutInput(e.target.value);
                         }}
-                        required
                     />
                 </div>
                 <label
@@ -127,7 +126,6 @@ export default function TimeForm(props) {
                         onChange={(e) => {
                             setInInput(e.target.value);
                         }}
-                        required
                     />
                 </div>
             </div>
