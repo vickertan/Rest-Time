@@ -79,7 +79,7 @@ export default function TimeForm(props) {
 
     return (
         <div id="form">
-            <div className="time-div">
+            <div className="left-div">
                 <label
                     className={outActive ? "active" : undefined}
                     htmlFor="out-time"
@@ -129,17 +129,19 @@ export default function TimeForm(props) {
                     />
                 </div>
             </div>
-            <CalcButton
-                {...props}
-                ref={{ outTimeRef, inTimeRef }}
-                setOutInput={setOutInput}
-                setInInput={setInInput}
-            />
+            <div className="right-div">
+                <RecordButton
+                    {...props}
+                    ref={{ outTimeRef, inTimeRef }}
+                    setOutInput={setOutInput}
+                    setInInput={setInInput}
+                />
+            </div>
         </div>
     );
 }
 
-const CalcButton = forwardRef((props, ref) => {
+const RecordButton = forwardRef((props, ref) => {
     function handleClick() {
         let start = ref.outTimeRef.current.value;
         let end = ref.inTimeRef.current.value;
@@ -181,9 +183,5 @@ const CalcButton = forwardRef((props, ref) => {
         }
     }
 
-    return (
-        <button className="calc-button" onClick={handleClick}>
-            |
-        </button>
-    );
+    return <button className="rec-button" onClick={handleClick}></button>;
 });
