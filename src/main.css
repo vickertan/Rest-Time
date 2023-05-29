@@ -96,7 +96,7 @@ p {
 }
 
 .time-div div .clock-button {
-    background-color: var(--dark-blue);
+    background-color: transparent;
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
@@ -104,28 +104,27 @@ p {
     background-size: auto 100%;
     outline: none;
     border: none;
-    transition: 0.1s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .time-div div .clock-button:active {
-    background-image: url("../assets/active-trans-clock-icon.png");
+    background-image: url("../assets/trans-clock-icon-pink.png");
 }
 
-#form .calc-button {
-    background-color: var(--dark-blue);
+#form .rec-button {
+    background-color: transparent;
+    background-image: url("../assets/trans-pencil-icon.png");
+    background-size: auto 100%;
     color: var(--gray);
-    width: 30px;
-    height: 80px;
+    width: 25px;
+    height: 25px;
     margin: auto 1rem auto 0;
-    border-radius: 1rem;
-    border: 1px solid var(--pink);
-    outline: none;
-    transition: 0.2s;
+    border: none;
+    transition: 0.2s ease-in-out;
 }
 
-#form .calc-button:active {
-    background-color: var(--pink);
-    color: var(--light);
+#form .rec-button:active {
+    background-image: url("../assets/trans-pencil-icon-pink.png");
 }
 
 .time-history {
