@@ -54,13 +54,13 @@ p {
     background-color: var(--dark-blue);
 }
 
-#form .left-div label,
-#form .left-div div {
+#form .left-div .in-out-label,
+#form .left-div .in-out-div {
     margin: 0.25rem 0.25rem;
     color: var(--light);
 }
 
-#form .left-div label {
+#form .left-div .in-out-label {
     width: fit-content;
     font-size: 0.8rem;
     margin-left: 1rem;
@@ -77,7 +77,7 @@ p {
     flex-direction: row;
 }
 
-#form .left-div input {
+#form .left-div .in-out-time {
     display: flex;
     width: 120px;
     height: auto;
@@ -109,6 +109,38 @@ p {
 
 .left-div div .clock-button:active {
     background-image: url("../assets/trans-clock-icon-pink.png");
+}
+
+.left-div .duration .dur-label {
+    font-size: 1rem;
+    color: var(--light);
+    margin: auto 0.5rem;
+    padding-top: 0.8rem;
+}
+
+.left-div .duration .dur-div {
+    color: var(--light);
+    margin: 1rem 0.8rem 0;
+}
+
+.left-div .duration input {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    background-color: var(--gray);
+    color: var(--pink);
+    margin: 0 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+}
+
+.left-div .duration input::placeholder {
+    color: var(--dark);
+}
+
+.left-div .duration input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 #form .rec-button {
