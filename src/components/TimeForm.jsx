@@ -81,12 +81,14 @@ export default function TimeForm(props) {
         <div id="form">
             <div className="left-div">
                 <label
-                    className={outActive ? "active" : undefined}
+                    className={`in-out-label ${
+                        outActive ? "active" : ""
+                    }`.trim()}
                     htmlFor="out-time"
                 >
                     T. Out
                 </label>
-                <div>
+                <div className="in-out-div">
                     <button
                         ref={outTimeRef}
                         className="clock-button"
@@ -98,6 +100,7 @@ export default function TimeForm(props) {
                         ref={outTimeRef}
                         id="out-time"
                         type="time"
+                        className="in-out-time"
                         value={outInput}
                         onChange={(e) => {
                             setOutInput(e.target.value);
@@ -105,12 +108,14 @@ export default function TimeForm(props) {
                     />
                 </div>
                 <label
-                    className={inActive ? "active" : undefined}
+                    className={`in-out-label ${
+                        inActive ? "active" : ""
+                    }`.trim()}
                     htmlFor="in-time"
                 >
                     T. In
                 </label>
-                <div>
+                <div className="in-out-div">
                     <button
                         ref={inTimeRef}
                         className="clock-button"
@@ -122,21 +127,40 @@ export default function TimeForm(props) {
                         ref={inTimeRef}
                         id="in-time"
                         type="time"
+                        className="in-out-time"
                         value={inInput}
                         onChange={(e) => {
                             setInInput(e.target.value);
                         }}
                     />
                 </div>
+                <div className="duration">
+                    <label className="dur-label" htmlFor="duration">
+                        Duration
+                    </label>
+                    <div className="dur-div">
+                        <input
+                            type="number"
+                            min="0"
+                            id="duration"
+                            placeholder="Hr"
+                        />
+                        :
+                        <input
+                            type="number"
+                            min="0"
+                            max="59"
+                            placeholder="Mn"
+                        />
+                    </div>
+                </div>
             </div>
-            <div className="right-div">
-                <RecordButton
-                    {...props}
-                    ref={{ outTimeRef, inTimeRef }}
-                    setOutInput={setOutInput}
-                    setInInput={setInInput}
-                />
-            </div>
+            <RecordButton
+                {...props}
+                ref={{ outTimeRef, inTimeRef }}
+                setOutInput={setOutInput}
+                setInInput={setInInput}
+            />
         </div>
     );
 }
