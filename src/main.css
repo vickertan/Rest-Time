@@ -120,7 +120,7 @@ p {
 
 .left-div .duration .dur-div {
     color: var(--light);
-    margin: 1rem 0.8rem 0;
+    margin: 1rem 0.5rem 0;
 }
 
 .left-div .duration input {
@@ -128,7 +128,7 @@ p {
     height: 25px;
     text-align: center;
     background-color: var(--gray);
-    color: var(--pink);
+    color: var(--darkest);
     margin: 0 0.5rem;
     outline: none;
     border: none;
@@ -136,7 +136,7 @@ p {
 }
 
 .left-div .duration input::placeholder {
-    color: var(--dark);
+    color: var(--light-pink);
 }
 
 .left-div .duration input::-webkit-inner-spin-button {
