@@ -1,6 +1,7 @@
 import { forwardRef, useRef, useState, useEffect } from "react";
 import calcMinsUsed from "../func/calcMinsUsed";
 import convToMilTime from "../func/convToMilTime";
+import convToMins from "../func/convToMins";
 
 export default function TimeForm(props) {
     function getCurTime(setInput) {
@@ -21,6 +22,33 @@ export default function TimeForm(props) {
     const [inActive, setInActive] = useState(false);
     const [hourDur, setHourDur] = useState("");
     const [minDur, setMinDur] = useState("");
+    const [totalMinsDur, setTotalMinsDur] = useState(0);
+
+    // update totalMinsDur when the duration values changed
+    useEffect(() => {
+        const curMinsDur = convToMins(
+            hourDurRef.current.value + ":" + minDurRef.current.value
+        );
+
+        if (curMinsDur > 0) {
+            setTotalMinsDur(curMinsDur);
+        } else {
+            setTotalMinsDur(0);
+        }
+    }, [hourDur, minDur]);
+
+    // update inInput on totalMinsDur & outInput changes
+    useEffect(() => {
+        if (outInput && totalMinsDur) {
+            setInInput(
+                convToMilTime(
+                    convToMins(outTimeRef.current.value) + totalMinsDur
+                )
+            );
+        } else {
+            setInInput("");
+        }
+    }, [totalMinsDur, outInput]);
 
     // set input status
     useEffect(() => {
