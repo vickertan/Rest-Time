@@ -13,11 +13,16 @@ export default function TimeForm(props) {
 
     const outTimeRef = useRef(null);
     const inTimeRef = useRef(null);
+    const hourDurRef = useRef(null);
+    const minDurRef = useRef(null);
     const [outInput, setOutInput] = useState("");
     const [inInput, setInInput] = useState("");
     const [outActive, setOutActive] = useState(false);
     const [inActive, setInActive] = useState(false);
+    const [hourDur, setHourDur] = useState("");
+    const [minDur, setMinDur] = useState("");
 
+    // set input status
     useEffect(() => {
         if (outInput) {
             setOutActive(true);
@@ -76,6 +81,28 @@ export default function TimeForm(props) {
     useEffect(() => {
         localStorage.setItem("inActive", JSON.stringify(inActive));
     }, [inActive]);
+
+    // hourDur
+    useEffect(() => {
+        const hourDur_S = JSON.parse(localStorage.getItem("hourDur"));
+        if (hourDur_S) {
+            setHourDur(hourDur_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("hourDur", JSON.stringify(hourDur));
+    }, [hourDur]);
+
+    // minDur
+    useEffect(() => {
+        const minDur_S = JSON.parse(localStorage.getItem("minDur"));
+        if (minDur_S) {
+            setMinDur(minDur_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("minDur", JSON.stringify(minDur));
+    }, [minDur]);
 
     return (
         <div id="form">
@@ -140,17 +167,27 @@ export default function TimeForm(props) {
                     </label>
                     <div className="dur-div">
                         <input
+                            ref={hourDurRef}
                             type="number"
                             min="0"
                             id="duration"
                             placeholder="Hr"
+                            value={hourDur}
+                            onChange={(e) => {
+                                setHourDur(e.target.value);
+                            }}
                         />
                         :
                         <input
+                            ref={minDurRef}
                             type="number"
                             min="0"
                             max="59"
                             placeholder="Mn"
+                            value={minDur}
+                            onChange={(e) => {
+                                setMinDur(e.target.value);
+                            }}
                         />
                     </div>
                 </div>
