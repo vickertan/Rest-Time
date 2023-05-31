@@ -14,6 +14,10 @@ export default function convToMilTime(totalMins) {
         hour = Math.floor(totalMins / 60);
     }
 
+    if (hour > 23) {
+        hour -= 24;
+    }
+
     let milTime =
         String(hour).padStart(2, "0") + ":" + String(min).padStart(2, "0");
 
