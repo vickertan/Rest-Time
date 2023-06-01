@@ -11,10 +11,6 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 
 ## To Do List
 
--   Add break duration
--   Auto calculate T. In when break duration inputted
--   Auto calculate break duration when T. In inputted
--   Change CalcButton to RecordButton
 -   Add feature to single delete time list
 -   TotalMinsUsed will be increased according to the deleted minsUsed
 -   Change "time left" color to red when over-limit
