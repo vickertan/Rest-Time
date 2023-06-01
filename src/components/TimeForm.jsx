@@ -24,7 +24,19 @@ export default function TimeForm(props) {
     const [minDur, setMinDur] = useState("");
     const [totalMinsDur, setTotalMinsDur] = useState(0);
 
-    // update totalMinsDur when the duration values changed
+    // update Duration value on inInput changes
+    useEffect(() => {
+        if (outInput && inInput) {
+            const curMinsUsed = calcMinsUsed(
+                outTimeRef.current.value,
+                inTimeRef.current.value
+            );
+            setHourDur(convToMilTime(curMinsUsed).split(":")[0]);
+            setMinDur(convToMilTime(curMinsUsed).split(":")[1]);
+        }
+    }, [inInput]);
+
+    // update totalMinsDur on Duration value's changes
     useEffect(() => {
         const curMinsDur = convToMins(
             hourDurRef.current.value + ":" + minDurRef.current.value
