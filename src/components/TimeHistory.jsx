@@ -13,8 +13,8 @@ export default function TimeHistory({
     function handleReset() {
         if (
             prompt(
-                "Deleted record(s) can't be retrieved. Type 'Clear' to proceed. (case-sensitive)"
-            ) === "Clear"
+                "Deleted record(s) can't be retrieved. Type 'clear' to proceed. (case-insensitive)"
+            ).toLowerCase() === "clear"
         ) {
             setTimeList([]);
             setHourLeft(hourLimit);
