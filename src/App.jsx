@@ -9,11 +9,13 @@ const App = () => {
         mins: 20,
     };
 
+    let limitColor;
+
     const validHour = String(limit.hour).padStart(2, "0");
     const validMins = String(limit.mins).padStart(2, "0");
 
     const [timeList, setTimeList] = useState([]);
-    const [overLimit, setOverLimit] = useState(false);
+    const [limitStatus, setLimitStatus] = useState("");
     const [hourLimit, setHourLimit] = useState(validHour);
     const [minsLimit, setMinsLimit] = useState(validMins);
     const [hourLeft, setHourLeft] = useState(validHour);
@@ -22,6 +24,17 @@ const App = () => {
     const [note2, setNote2] = useState("");
 
     const [totalMinsUsed, setTotalMinsUsed] = useState(0);
+
+    // keeps limitStatus's state in local storage
+    useEffect(() => {
+        const limitStatus_S = JSON.parse(localStorage.getItem("limitStatus"));
+        if (limitStatus_S) {
+            setLimitStatus(limitStatus_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("limitStatus", JSON.stringify(limitStatus));
+    }, [limitStatus]);
 
     // keeps time left's state in local storage
     useEffect(() => {
@@ -83,13 +96,21 @@ const App = () => {
         localStorage.setItem("note2", JSON.stringify(note2));
     }, [note2]);
 
+    if (limitStatus === "danger") {
+        limitColor = "#aa1e3a";
+    } else if (limitStatus === "warn") {
+        limitColor = "#f0a92d";
+    } else {
+        limitColor = "#eee";
+    }
+
     return (
         <div className="content-box">
             <div className="indicator">
                 <p>
                     Limit : {hourLimit} hr {minsLimit} mins
                 </p>
-                <p>
+                <p style={{ color: limitColor }}>
                     Time Left : {hourLeft} hr {minsLeft} mins
                 </p>
             </div>
@@ -98,8 +119,8 @@ const App = () => {
                 setHourLeft={setHourLeft}
                 minsLeft={minsLeft}
                 setMinsLeft={setMinsLeft}
-                overLimit={overLimit}
-                setOverLimit={setOverLimit}
+                limitStatus={limitStatus}
+                setLimitStatus={setLimitStatus}
                 timeList={timeList}
                 setTimeList={setTimeList}
                 totalMinsUsed={totalMinsUsed}
@@ -114,6 +135,7 @@ const App = () => {
                 setMinsLeft={setMinsLeft}
                 totalMinsUsed={totalMinsUsed}
                 setTotalMinsUsed={setTotalMinsUsed}
+                setLimitStatus={setLimitStatus}
             />
             <div className="note">
                 <p>What did you have for lunch?</p>

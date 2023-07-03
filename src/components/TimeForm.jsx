@@ -257,7 +257,11 @@ const RecordButton = forwardRef((props, ref) => {
                 totalMinsLeft -= curMinsUsed;
 
                 if (totalMinsLeft < 0) {
-                    props.setOverLimit(true);
+                    props.setLimitStatus("danger");
+                } else if (totalMinsLeft < 10) {
+                    props.setLimitStatus("warn");
+                } else {
+                    props.setLimitStatus("");
                 }
 
                 const totalTimeLeft = convToMilTime(totalMinsLeft);

@@ -9,6 +9,7 @@ export default function TimeHistory({
     setMinsLeft,
     totalMinsUsed,
     setTotalMinsUsed,
+    setLimitStatus,
 }) {
     function handleReset() {
         if (
@@ -20,6 +21,7 @@ export default function TimeHistory({
             setHourLeft(hourLimit);
             setMinsLeft(minsLimit);
             setTotalMinsUsed(0);
+            setLimitStatus("safe");
         } else {
             alert("Record(s) delete cancelled by user");
         }
