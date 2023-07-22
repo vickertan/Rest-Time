@@ -15,4 +15,6 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 -   TotalMinsUsed will be decreased according to the deleted minsUsed
 -   Add warning indicator when user's input is not qualified (empty or same)
 -   Remove unused color in css
--   Display deletion confirmation using modal
+-   Display deletion confirmation using modald
+-   Access API key using process.env
+-   Refetch quote data whenever the date in local storage different from today's date
