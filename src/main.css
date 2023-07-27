@@ -259,16 +259,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .quote .title {
     margin-top: 1rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: var(--gray);
 }
 
 .quote .content {
     margin-top: 1.8rem;
-    font-size: 1rem;
+    font-size: 1.125rem;
 }
 
 .quote .author {
     margin-top: 1.8rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
