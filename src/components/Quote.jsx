@@ -1,17 +1,24 @@
 import { useState, useEffect } from "react";
 
 function Quote() {
+    const [latestDate, setLatestDate] = useState(new Date().getDate());
+
+    const objData = JSON.parse(localStorage.getItem("quoteData"));
     const [quoteData, setQuoteData] = useState({
-        category: "",
-        content: "",
-        author: "",
-        timeCreated: "",
+        category: objData?.category ? objData.category : "",
+        content: objData?.category ? objData.content : "",
+        author: objData?.author ? objData.author : "",
+        date: objData?.date ? objData.date : "",
     });
+
+    const randDigit = Math.floor(Math.random() * 2);
 
     const fetchQuote = async () => {
         try {
             const response = await fetch(
-                "https://api.api-ninjas.com/v1/quotes?category=",
+                `https://api.api-ninjas.com/v1/quotes?category=${
+                    randDigit ? "happiness" : "success"
+                }`,
                 {
                     method: "GET",
                     headers: {
@@ -29,25 +36,52 @@ function Quote() {
                 category: data[0].category,
                 content: data[0].quote,
                 author: data[0].author,
-                timeCreated: "now",
+                date: latestDate,
             });
         } catch (error) {
             console.log("Error: ", error);
         }
     };
 
+    // keeping latestDate in local storage
     useEffect(() => {
-        fetchQuote();
+        const prevDate = JSON.parse(localStorage.getItem("latestDate"));
+        if (prevDate != latestDate) {
+            setLatestDate(latestDate);
+        } else {
+            setLatestDate(prevDate);
+        }
     }, []);
+    useEffect(() => {
+        localStorage.setItem("latestDate", JSON.stringify(latestDate));
+    }, [latestDate]);
 
-    console.log(quoteData);
+    // keeping quoteData in local storage
+    useEffect(() => {
+        const quoteData_S = JSON.parse(localStorage.getItem("quoteData"));
+        if (quoteData_S) {
+            setQuoteData(quoteData_S);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("quoteData", JSON.stringify(quoteData));
+    }, [quoteData]);
+
+    // refetch data every day
+    useEffect(() => {
+        if (quoteData.date !== latestDate || !quoteData.content) {
+            fetchQuote();
+        } else {
+            console.log("Not fetching data");
+        }
+    }, []);
 
     return (
         <>
-            <div>
-                <p>{quoteData.category}</p>
-                <p>{quoteData.content}</p>
-                <p>{quoteData.author}</p>
+            <div className="quote">
+                <p className="title">Today's {quoteData.category} quote :</p>
+                <p className="content">{quoteData.content}</p>
+                <p className="author">{quoteData.author}</p>
             </div>
         </>
     );
