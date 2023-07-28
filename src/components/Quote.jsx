@@ -79,9 +79,9 @@ function Quote() {
     return (
         <>
             <div className="quote">
-                <p className="title">Today's {quoteData.category} quote :</p>
+                <p className="title">Today's {quoteData.category} quote</p>
                 <p className="content">{quoteData.content}</p>
-                <p className="author">{quoteData.author}</p>
+                <p className="author">- {quoteData.author}</p>
             </div>
         </>
     );
