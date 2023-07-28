@@ -38,6 +38,7 @@ function Quote() {
                 author: data[0].author,
                 date: latestDate,
             });
+            console.log("Data fetched");
         } catch (error) {
             console.log("Error: ", error);
         }
