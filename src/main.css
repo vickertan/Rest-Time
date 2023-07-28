@@ -257,10 +257,29 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     color: var(--light);
 }
 
-.quote .title {
+.quote .header {
+    display: flex;
     margin-top: 1rem;
+}
+
+.quote .header .title {
+    flex: 1 1 0%;
     font-size: 0.8rem;
     color: var(--gray);
+    align-self: center;
+}
+
+.quote .header .refresh {
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--light-pink);
+    transition: 0.4s;
+    margin-right: 1rem;
+    border: none;
+}
+
+.quote .header .refresh:active {
+    opacity: 0.6;
 }
 
 .quote .content {

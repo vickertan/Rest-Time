@@ -78,13 +78,19 @@ function Quote() {
     }, []);
 
     return (
-        <>
-            <div className="quote">
+        <div className="quote">
+            <div className="header">
                 <p className="title">Today's {quoteData.category} quote</p>
-                <p className="content">{quoteData.content}</p>
-                <p className="author">- {quoteData.author}</p>
+                <button
+                    className="refresh"
+                    onClick={() => window.location.reload(true)}
+                >
+                    Refresh
+                </button>
             </div>
-        </>
+            <p className="content">{quoteData.content}</p>
+            <p className="author">- {quoteData.author}</p>
+        </div>
     );
 }
 
