@@ -16,4 +16,4 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 -   Add warning indicator when user's input is not qualified (empty or same)
 -   Remove unused color in css
 -   Display deletion confirmation using modal
--   Refetch quote data whenever the date in local storage different from today's date
+-   Create loading animation when fetching quote from API
