@@ -17,3 +17,4 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 -   Remove unused color in css
 -   Display deletion confirmation using modal
 -   Create loading animation when fetching quote from API
+-   Make time limit's value editable by user
