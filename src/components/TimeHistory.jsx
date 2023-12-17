@@ -53,7 +53,7 @@ export default function TimeHistory({
 function Record({ time, id }) {
     return (
         <div id={id} className="record">
-            <p className="sequence">{id + 1}</p>
+            <button className="sequence">{id + 1}</button>
             <div className="time-section">
                 <p>Out. {time.out}</p>
                 <hr />

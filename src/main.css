@@ -13,7 +13,7 @@
 body {
     background-color: var(--dark-blue);
     overscroll-behavior-y: contain;
-} 
+}
 
 .content-box {
     display: flex;
@@ -212,12 +212,19 @@ p {
 }
 
 .inner-history-box .record .sequence {
+    background-color: var(--dark-blue);
     color: var(--light);
-    width: 20px;
-    height: 100%;
+    width: 15px;
+    height: 40px;
     margin: auto 6px auto 0;
-    line-height: 50px;
+    padding-right: 18px;
+    border: none;
     border-right: 1px solid var(--pink);
+    transition: 0.2s;
+}
+
+.inner-history-box .record .sequence:active {
+    color: var(--red);
 }
 
 .inner-history-box .record .time-section {
