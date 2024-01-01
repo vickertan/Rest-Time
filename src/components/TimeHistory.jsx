@@ -1,4 +1,7 @@
+import { useState } from "react";
 import convToMilTime from "../func/convToMilTime";
+import { Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function TimeHistory({
     hourLimit,
@@ -15,7 +18,9 @@ export default function TimeHistory({
         if (
             prompt(
                 "Deleted record(s) can't be retrieved. Type 'clear' to proceed. (case-insensitive)"
-            ).toLowerCase() === "clear"
+            )
+                .toLowerCase()
+                .trim() === "clear"
         ) {
             setTimeList([]);
             setHourLeft(hourLimit);
@@ -23,7 +28,7 @@ export default function TimeHistory({
             setTotalMinsUsed(0);
             setLimitStatus("safe");
         } else {
-            alert("Record(s) delete cancelled by user");
+            alert("Record(s) delete failed");
         }
     }
 
@@ -51,14 +56,36 @@ export default function TimeHistory({
 }
 
 function Record({ time, id }) {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
         <div id={id} className="record">
-            <button className="sequence">{id + 1}</button>
+            <button
+                className="sequence"
+                onClick={(e) => setAnchorEl(e.currentTarget)}
+            >
+                {id + 1}
+            </button>
             <div className="time-section">
                 <p>Out. {time.out}</p>
                 <hr />
                 <p>In. {time.in}</p>
             </div>
+            <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+            >
+                <MenuItem>
+                    <ListItemIcon>
+                        <DeleteIcon fontSize="small" />
+                    </ListItemIcon>
+                    <ListItemText>Delete</ListItemText>
+                </MenuItem>
+            </Menu>
         </div>
     );
 }
