@@ -13,7 +13,9 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 
 -   Add feature to single delete time list
 -   TotalMinsUsed will be decreased according to the deleted minsUsed
+-   Add configuration box to change settings according to user's preference
 -   Add warning indicator when user's input is not qualified (empty or same)
 -   Remove unused color in css
 -   Display deletion confirmation using modal
 -   Create loading animation when fetching quote from API
+-   Send notification when time is up or almost up

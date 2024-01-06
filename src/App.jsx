@@ -8,7 +8,7 @@ import Quote from "./components/Quote";
 const App = () => {
     const limit = {
         hour: 2,
-        mins: 20,
+        mins: 10,
     };
 
     let limitColor;
