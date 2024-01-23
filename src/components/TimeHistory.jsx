@@ -1,5 +1,6 @@
 import { useState } from "react";
 import convToMilTime from "../func/convToMilTime";
+import calcMinsUsed from "../func/calcMinsUsed";
 import { Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -43,7 +44,14 @@ export default function TimeHistory({
                     </button>
                     <div className="inner-history-box">
                         {timeList.map((time, index) => (
-                            <Record time={time} id={index} key={index} />
+                            <Record
+                                key={index}
+                                time={time}
+                                id={index}
+                                timeList={timeList}
+                                totalMinsUsed={totalMinsUsed}
+                                setTotalMinsUsed={setTotalMinsUsed}
+                            />
                         ))}
                     </div>
                     <div className="total-box">
@@ -55,9 +63,10 @@ export default function TimeHistory({
     );
 }
 
-function Record({ time, id }) {
+function Record({ time, id, timeList, totalMinsUsed, setTotalMinsUsed }) {
     const [anchorEl, setAnchorEl] = useState(null);
-    const handleClose = () => {
+
+    const handleCloseMenu = () => {
         setAnchorEl(null);
     };
 
@@ -65,7 +74,9 @@ function Record({ time, id }) {
         <div id={id} className="record">
             <button
                 className="sequence"
-                onClick={(e) => setAnchorEl(e.currentTarget)}
+                onClick={(e) => {
+                    setAnchorEl(e.currentTarget);
+                }}
             >
                 {id + 1}
             </button>
@@ -77,9 +88,16 @@ function Record({ time, id }) {
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
-                onClose={handleClose}
+                onClose={handleCloseMenu}
             >
-                <MenuItem>
+                <MenuItem
+                    id="deleteCurRec"
+                    onClick={() => {
+                        let target = timeList[id];
+                        let targetMinUsed = calcMinsUsed(target.out, target.in);
+                        // setTotalMinsUsed(totalMinsUsed - targetMinUsed);
+                    }}
+                >
                     <ListItemIcon>
                         <DeleteIcon fontSize="small" />
                     </ListItemIcon>
