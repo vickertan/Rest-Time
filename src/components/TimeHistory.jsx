@@ -5,12 +5,10 @@ import { Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function TimeHistory({
-    hourLimit,
-    minsLimit,
+    totalMinsLimit, //new
     timeList,
     setTimeList,
-    setHourLeft,
-    setMinsLeft,
+    setTotalMinsLeft, //new
     totalMinsUsed,
     setTotalMinsUsed,
     setLimitStatus,
@@ -24,9 +22,8 @@ export default function TimeHistory({
                 .trim() === "clear"
         ) {
             setTimeList([]);
-            setHourLeft(hourLimit);
-            setMinsLeft(minsLimit);
             setTotalMinsUsed(0);
+            setTotalMinsLeft(totalMinsLimit); //new
             setLimitStatus("safe");
         } else {
             alert("Record(s) delete failed");
@@ -49,8 +46,11 @@ export default function TimeHistory({
                                 time={time}
                                 id={index}
                                 timeList={timeList}
+                                setTimeList={setTimeList}
                                 totalMinsUsed={totalMinsUsed}
                                 setTotalMinsUsed={setTotalMinsUsed}
+                                totalMinsLeft={totalMinsLeft} //new
+                                setTotalMinsLeft={setTotalMinsLeft} //new
                             />
                         ))}
                     </div>
@@ -63,7 +63,16 @@ export default function TimeHistory({
     );
 }
 
-function Record({ time, id, timeList, totalMinsUsed, setTotalMinsUsed }) {
+function Record({
+    time,
+    id,
+    timeList,
+    setTimeList,
+    totalMinsUsed,
+    setTotalMinsUsed,
+    totalMinsLeft, //new
+    setTotalMinsLeft, //new
+}) {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleCloseMenu = () => {
@@ -95,7 +104,9 @@ function Record({ time, id, timeList, totalMinsUsed, setTotalMinsUsed }) {
                     onClick={() => {
                         let target = timeList[id];
                         let targetMinUsed = calcMinsUsed(target.out, target.in);
-                        // setTotalMinsUsed(totalMinsUsed - targetMinUsed);
+                        setTotalMinsUsed(totalMinsUsed - targetMinUsed);
+                        setTotalMinsLeft(totalMinsLeft + targetMinUsed); //new
+                        setTimeList(timeList.filter((time) => time !== target));
                     }}
                 >
                     <ListItemIcon>
