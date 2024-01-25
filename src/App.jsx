@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
 import Quote from "./components/Quote";
+import convToMins from "./func/convToMins";
 
 const App = () => {
     const limit = {
@@ -24,6 +25,15 @@ const App = () => {
     const [minsLeft, setMinsLeft] = useState(validMins);
 
     const [totalMinsUsed, setTotalMinsUsed] = useState(0);
+
+    const [totalMinsLimit, setTotalMinsLimit] = useState(
+        convToMins(`${limit.hour}:${limit.mins}`)
+    );
+    const [totalMinsLeft, setTotalMinsLeft] = useState(totalMinsLimit);
+
+    useEffect(() => {
+        setTotalMinsLeft(totalMinsLimit - totalMinsUsed);
+    }, [hourLeft, minsLeft]);
 
     // keeps limitStatus's state in local storage
     useEffect(() => {
