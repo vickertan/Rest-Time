@@ -5,6 +5,7 @@ import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
 import Quote from "./components/Quote";
 import convToMins from "./func/convToMins";
+import convToMilTime from "./func/convToMilTime";
 
 const App = () => {
     const limit = {
@@ -31,9 +32,9 @@ const App = () => {
     );
     const [totalMinsLeft, setTotalMinsLeft] = useState(totalMinsLimit);
 
-    useEffect(() => {
-        setTotalMinsLeft(totalMinsLimit - totalMinsUsed);
-    }, [hourLeft, minsLeft]);
+    // useEffect(() => {
+    //     setTotalMinsLeft(totalMinsLimit - totalMinsUsed);
+    // }, [hourLeft, minsLeft]);
 
     // keeps limitStatus's state in local storage
     useEffect(() => {
@@ -57,9 +58,9 @@ const App = () => {
     useEffect(() => {
         localStorage.setItem(
             "milTimeLeft",
-            JSON.stringify(hourLeft + ":" + minsLeft)
+            JSON.stringify(convToMilTime(totalMinsLeft))
         );
-    }, [hourLeft, minsLeft]);
+    }, [totalMinsLeft]);
 
     // keeps timeList in local storage
     useEffect(() => {
@@ -104,10 +105,8 @@ const App = () => {
                 </p>
             </div>
             <TimeForm
-                hourLeft={hourLeft}
-                setHourLeft={setHourLeft}
-                minsLeft={minsLeft}
-                setMinsLeft={setMinsLeft}
+                totalMinsLeft={totalMinsLeft}
+                setTotalMinsLeft={setTotalMinsLeft}
                 limitStatus={limitStatus}
                 setLimitStatus={setLimitStatus}
                 timeList={timeList}
@@ -116,12 +115,10 @@ const App = () => {
                 setTotalMinsUsed={setTotalMinsUsed}
             />
             <TimeHistory
-                hourLimit={hourLimit}
-                minsLimit={minsLimit}
+                totalMinsLimit={totalMinsLimit}
                 timeList={timeList}
                 setTimeList={setTimeList}
-                setHourLeft={setHourLeft}
-                setMinsLeft={setMinsLeft}
+                setTotalMinsLeft={setTotalMinsLeft}
                 totalMinsUsed={totalMinsUsed}
                 setTotalMinsUsed={setTotalMinsUsed}
                 setLimitStatus={setLimitStatus}
