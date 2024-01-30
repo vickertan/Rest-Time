@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
 import Quote from "./components/Quote";
+import convToMins from "./func/convToMins";
+import convToMilTime from "./func/convToMilTime";
 
 const App = () => {
     const limit = {
@@ -25,6 +27,11 @@ const App = () => {
 
     const [totalMinsUsed, setTotalMinsUsed] = useState(0);
 
+    const [totalMinsLimit, setTotalMinsLimit] = useState(
+        convToMins(`${hourLimit}:${minsLimit}`)
+    );
+    const [totalMinsLeft, setTotalMinsLeft] = useState(totalMinsLimit);
+
     // keeps limitStatus's state in local storage
     useEffect(() => {
         const limitStatus_S = JSON.parse(localStorage.getItem("limitStatus"));
@@ -35,21 +42,6 @@ const App = () => {
     useEffect(() => {
         localStorage.setItem("limitStatus", JSON.stringify(limitStatus));
     }, [limitStatus]);
-
-    // keeps time left's state in local storage
-    useEffect(() => {
-        const milTimeLeft_S = JSON.parse(localStorage.getItem("milTimeLeft"));
-        if (milTimeLeft_S) {
-            setHourLeft(milTimeLeft_S.split(":")[0]);
-            setMinsLeft(milTimeLeft_S.split(":")[1]);
-        }
-    }, []);
-    useEffect(() => {
-        localStorage.setItem(
-            "milTimeLeft",
-            JSON.stringify(hourLeft + ":" + minsLeft)
-        );
-    }, [hourLeft, minsLeft]);
 
     // keeps timeList in local storage
     useEffect(() => {
@@ -75,6 +67,36 @@ const App = () => {
         localStorage.setItem("totalMinsUsed", JSON.stringify(totalMinsUsed));
     }, [totalMinsUsed]);
 
+    // update hour and mins left's state on totalMinsLeft change
+    useEffect(() => {
+        const totalMinsLeft_S = JSON.parse(
+            localStorage.getItem("totalMinsLeft")
+        );
+        if (totalMinsLeft_S) {
+            const milTimeLeft = convToMilTime(totalMinsLeft_S);
+            setTotalMinsLeft(totalMinsLeft_S);
+            setHourLeft(milTimeLeft.split(":")[0]);
+            setMinsLeft(milTimeLeft.split(":")[1]);
+        }
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("totalMinsLeft", totalMinsLeft);
+        const milTimeLeft = convToMilTime(totalMinsLeft);
+        setHourLeft(milTimeLeft.split(":")[0]);
+        setMinsLeft(milTimeLeft.split(":")[1]);
+    }, [totalMinsLeft]);
+
+    // update limitStatus on totalMinsLeft change
+    useEffect(() => {
+        if (totalMinsLeft < 0) {
+            setLimitStatus("danger");
+        } else if (totalMinsLeft < 10) {
+            setLimitStatus("warn");
+        } else {
+            setLimitStatus("");
+        }
+    }, [totalMinsLeft]);
+
     if (limitStatus === "danger") {
         limitColor = "#aa1e3a";
     } else if (limitStatus === "warn") {
@@ -94,27 +116,21 @@ const App = () => {
                 </p>
             </div>
             <TimeForm
-                hourLeft={hourLeft}
-                setHourLeft={setHourLeft}
-                minsLeft={minsLeft}
-                setMinsLeft={setMinsLeft}
-                limitStatus={limitStatus}
-                setLimitStatus={setLimitStatus}
+                totalMinsLeft={totalMinsLeft}
+                setTotalMinsLeft={setTotalMinsLeft}
                 timeList={timeList}
                 setTimeList={setTimeList}
                 totalMinsUsed={totalMinsUsed}
                 setTotalMinsUsed={setTotalMinsUsed}
             />
             <TimeHistory
-                hourLimit={hourLimit}
-                minsLimit={minsLimit}
+                totalMinsLimit={totalMinsLimit}
                 timeList={timeList}
                 setTimeList={setTimeList}
-                setHourLeft={setHourLeft}
-                setMinsLeft={setMinsLeft}
+                totalMinsLeft={totalMinsLeft}
+                setTotalMinsLeft={setTotalMinsLeft}
                 totalMinsUsed={totalMinsUsed}
                 setTotalMinsUsed={setTotalMinsUsed}
-                setLimitStatus={setLimitStatus}
             />
             <Quote />
         </div>

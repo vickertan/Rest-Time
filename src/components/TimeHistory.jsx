@@ -1,18 +1,17 @@
 import { useState } from "react";
 import convToMilTime from "../func/convToMilTime";
+import calcMinsUsed from "../func/calcMinsUsed";
 import { Menu, MenuItem, ListItemIcon, ListItemText } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function TimeHistory({
-    hourLimit,
-    minsLimit,
+    totalMinsLimit, //new
     timeList,
     setTimeList,
-    setHourLeft,
-    setMinsLeft,
+    totalMinsLeft,
+    setTotalMinsLeft, //new
     totalMinsUsed,
     setTotalMinsUsed,
-    setLimitStatus,
 }) {
     function handleReset() {
         if (
@@ -23,10 +22,8 @@ export default function TimeHistory({
                 .trim() === "clear"
         ) {
             setTimeList([]);
-            setHourLeft(hourLimit);
-            setMinsLeft(minsLimit);
             setTotalMinsUsed(0);
-            setLimitStatus("safe");
+            setTotalMinsLeft(totalMinsLimit); //new
         } else {
             alert("Record(s) delete failed");
         }
@@ -43,7 +40,17 @@ export default function TimeHistory({
                     </button>
                     <div className="inner-history-box">
                         {timeList.map((time, index) => (
-                            <Record time={time} id={index} key={index} />
+                            <Record
+                                key={index}
+                                time={time}
+                                id={index}
+                                timeList={timeList}
+                                setTimeList={setTimeList}
+                                totalMinsUsed={totalMinsUsed}
+                                setTotalMinsUsed={setTotalMinsUsed}
+                                totalMinsLeft={totalMinsLeft} //new
+                                setTotalMinsLeft={setTotalMinsLeft} //new
+                            />
                         ))}
                     </div>
                     <div className="total-box">
@@ -55,9 +62,19 @@ export default function TimeHistory({
     );
 }
 
-function Record({ time, id }) {
+function Record({
+    time,
+    id,
+    timeList,
+    setTimeList,
+    totalMinsUsed,
+    setTotalMinsUsed,
+    totalMinsLeft, //new
+    setTotalMinsLeft, //new
+}) {
     const [anchorEl, setAnchorEl] = useState(null);
-    const handleClose = () => {
+
+    const handleCloseMenu = () => {
         setAnchorEl(null);
     };
 
@@ -65,7 +82,9 @@ function Record({ time, id }) {
         <div id={id} className="record">
             <button
                 className="sequence"
-                onClick={(e) => setAnchorEl(e.currentTarget)}
+                onClick={(e) => {
+                    setAnchorEl(e.currentTarget);
+                }}
             >
                 {id + 1}
             </button>
@@ -77,9 +96,19 @@ function Record({ time, id }) {
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
-                onClose={handleClose}
+                onClose={handleCloseMenu}
             >
-                <MenuItem>
+                <MenuItem
+                    id="deleteCurRec"
+                    onClick={() => {
+                        let target = timeList[id];
+                        let targetMinUsed = calcMinsUsed(target.out, target.in);
+                        setTotalMinsUsed(totalMinsUsed - targetMinUsed);
+                        setTotalMinsLeft(totalMinsLeft + targetMinUsed); //new
+                        setTimeList(timeList.filter((time) => time !== target));
+                        handleCloseMenu();
+                    }}
+                >
                     <ListItemIcon>
                         <DeleteIcon fontSize="small" />
                     </ListItemIcon>
