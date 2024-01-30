@@ -30,9 +30,7 @@ const App = () => {
     const [totalMinsLimit, setTotalMinsLimit] = useState(
         convToMins(`${hourLimit}:${minsLimit}`)
     );
-    const [totalMinsLeft, setTotalMinsLeft] = useState(
-        convToMins(`${hourLeft}:${minsLeft}`)
-    );
+    const [totalMinsLeft, setTotalMinsLeft] = useState(totalMinsLimit);
 
     // keeps limitStatus's state in local storage
     useEffect(() => {
@@ -120,8 +118,6 @@ const App = () => {
             <TimeForm
                 totalMinsLeft={totalMinsLeft}
                 setTotalMinsLeft={setTotalMinsLeft}
-                limitStatus={limitStatus}
-                setLimitStatus={setLimitStatus}
                 timeList={timeList}
                 setTimeList={setTimeList}
                 totalMinsUsed={totalMinsUsed}
@@ -131,10 +127,10 @@ const App = () => {
                 totalMinsLimit={totalMinsLimit}
                 timeList={timeList}
                 setTimeList={setTimeList}
+                totalMinsLeft={totalMinsLeft}
                 setTotalMinsLeft={setTotalMinsLeft}
                 totalMinsUsed={totalMinsUsed}
                 setTotalMinsUsed={setTotalMinsUsed}
-                setLimitStatus={setLimitStatus}
             />
             <Quote />
         </div>

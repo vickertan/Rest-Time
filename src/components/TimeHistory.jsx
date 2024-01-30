@@ -8,10 +8,10 @@ export default function TimeHistory({
     totalMinsLimit, //new
     timeList,
     setTimeList,
+    totalMinsLeft,
     setTotalMinsLeft, //new
     totalMinsUsed,
     setTotalMinsUsed,
-    setLimitStatus,
 }) {
     function handleReset() {
         if (
@@ -24,7 +24,6 @@ export default function TimeHistory({
             setTimeList([]);
             setTotalMinsUsed(0);
             setTotalMinsLeft(totalMinsLimit); //new
-            setLimitStatus("safe");
         } else {
             alert("Record(s) delete failed");
         }
@@ -107,6 +106,7 @@ function Record({
                         setTotalMinsUsed(totalMinsUsed - targetMinUsed);
                         setTotalMinsLeft(totalMinsLeft + targetMinUsed); //new
                         setTimeList(timeList.filter((time) => time !== target));
+                        handleCloseMenu();
                     }}
                 >
                     <ListItemIcon>
