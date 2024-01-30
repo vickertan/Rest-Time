@@ -25,11 +25,6 @@ body {
     border-radius: 1rem;
 }
 
-p {
-    text-align: center;
-    transition: 1s;
-}
-
 .head {
     display: flex;
     margin: 1rem auto 0.5rem;
@@ -37,17 +32,17 @@ p {
 }
 
 .head .indicator {
-    flex: 50%;
+    flex: 60%;
     font-size: 1rem;
     color: var(--light);
-    max-width: 75%;
+    justify-content: center;
 }
 
 .head .info {
-    flex: 50%;
+    flex: 40%;
     display: flex;
     margin: auto 0;
-    max-width: fit-content;
+    justify-content: center;
 }
 
 #form {
@@ -265,6 +260,10 @@ p {
     color: var(--gray);
 }
 
+.time-history .total-box p {
+    text-align: center;
+}
+
 input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -274,7 +273,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .quote p {
-    text-align: unset;
     margin: 0 1rem;
     color: var(--light);
 }
