@@ -250,31 +250,13 @@ const RecordButton = forwardRef((props, ref) => {
         if (start && end) {
             if (start !== end) {
                 const curMinsUsed = calcMinsUsed(start, end);
+                props.setTotalMinsLeft(props.totalMinsLeft - curMinsUsed);
                 props.setTotalMinsUsed(props.totalMinsUsed + curMinsUsed);
-
-                let totalMinsLeft = +props.hourLeft * 60 + +props.minsLeft;
-
-                totalMinsLeft -= curMinsUsed;
-
-                if (totalMinsLeft < 0) {
-                    props.setLimitStatus("danger");
-                } else if (totalMinsLeft < 10) {
-                    props.setLimitStatus("warn");
-                } else {
-                    props.setLimitStatus("");
-                }
-
-                const totalTimeLeft = convToMilTime(totalMinsLeft);
-
-                // set hour value to the left side of :
-                props.setHourLeft(totalTimeLeft.split(":")[0]);
-
-                // set mins value to the right side of :
-                props.setMinsLeft(totalTimeLeft.split(":")[1]);
 
                 // update timeList record
                 props.setTimeList([...props.timeList, { out: start, in: end }]);
 
+                // reset input value
                 props.setOutInput("");
                 props.setInInput("");
             } else {
