@@ -40,13 +40,13 @@ p {
     flex: 50%;
     font-size: 1rem;
     color: var(--light);
-    max-width: 50%;
+    max-width: 75%;
 }
 
 .head .info {
     flex: 50%;
     display: flex;
-    margin: auto;
+    margin: auto 0;
     max-width: fit-content;
 }
 

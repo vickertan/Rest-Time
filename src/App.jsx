@@ -3,10 +3,10 @@ import { createRoot } from "react-dom/client";
 import { useEffect, useState } from "react";
 import convToMins from "./func/convToMins";
 import convToMilTime from "./func/convToMilTime";
+import InfoButton from "./components/Info";
 import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
 import Quote from "./components/Quote";
-import InfoIcon from "@mui/icons-material/Info";
 
 const App = () => {
     const limit = {
@@ -117,15 +117,7 @@ const App = () => {
                         Time Left : {hourLeft} hr {minsLeft} mins
                     </p>
                 </div>
-                <div className="info">
-                    <InfoIcon
-                        color="info"
-                        fontSize="large"
-                        onClick={() => {
-                            // add function to display modal
-                        }}
-                    />
-                </div>
+                <InfoButton />
             </div>
             <TimeForm
                 totalMinsLeft={totalMinsLeft}
