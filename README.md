@@ -11,8 +11,6 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 
 ## To Do List
 
--   Add feature to single delete time list
--   TotalMinsUsed will be decreased according to the deleted minsUsed
 -   Add configuration box to change settings according to user's preference
 
     -   Add feature to edit time limit
