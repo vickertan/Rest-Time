@@ -12,7 +12,7 @@ export default function InfoButton() {
     const [content, setContent] = useState();
 
     useEffect(() => {
-        fetch("./assets/info.md")
+        fetch("./Public/info.md")
             .then((res) => res.text())
             .then((text) => setContent(text));
     }, []);
