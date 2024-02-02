@@ -25,15 +25,24 @@ body {
     border-radius: 1rem;
 }
 
-p {
-    text-align: center;
-    transition: 1s;
+.head {
+    display: flex;
+    margin: 1rem auto 0.5rem;
+    min-width: 90%;
 }
 
-.indicator {
-    margin: 1.5rem auto 0.5rem;
-    font-size: 1.125rem;
+.head .indicator {
+    flex: 60%;
+    font-size: 1rem;
     color: var(--light);
+    justify-content: center;
+}
+
+.head .info {
+    flex: 40%;
+    display: flex;
+    margin: auto 0;
+    justify-content: center;
 }
 
 #form {
@@ -251,6 +260,10 @@ p {
     color: var(--gray);
 }
 
+.time-history .total-box p {
+    text-align: center;
+}
+
 input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -260,7 +273,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .quote p {
-    text-align: unset;
     margin: 0 1rem;
     color: var(--light);
 }

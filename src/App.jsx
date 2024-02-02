@@ -1,11 +1,12 @@
 import "./main.css";
 import { createRoot } from "react-dom/client";
 import { useEffect, useState } from "react";
+import convToMins from "./func/convToMins";
+import convToMilTime from "./func/convToMilTime";
+import InfoButton from "./components/InfoButton";
 import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
 import Quote from "./components/Quote";
-import convToMins from "./func/convToMins";
-import convToMilTime from "./func/convToMilTime";
 
 const App = () => {
     const limit = {
@@ -107,13 +108,16 @@ const App = () => {
 
     return (
         <div className="content-box">
-            <div className="indicator">
-                <p>
-                    Limit : {hourLimit} hr {minsLimit} mins
-                </p>
-                <p style={{ color: limitColor }}>
-                    Time Left : {hourLeft} hr {minsLeft} mins
-                </p>
+            <div className="head">
+                <div className="indicator">
+                    <p style={{ textAlign: "right" }}>
+                        Limit : {hourLimit} hr {minsLimit} mins
+                    </p>
+                    <p style={{ color: limitColor, textAlign: "right" }}>
+                        Time Left : {hourLeft} hr {minsLeft} mins
+                    </p>
+                </div>
+                <InfoButton />
             </div>
             <TimeForm
                 totalMinsLeft={totalMinsLeft}
