@@ -7,6 +7,7 @@ import InfoButton from "./components/InfoButton";
 import TimeForm from "./components/TimeForm";
 import TimeHistory from "./components/TimeHistory";
 import Quote from "./components/Quote";
+import UpdateLog from "./components/UpdateLog";
 
 const App = () => {
     const limit = {
@@ -117,7 +118,9 @@ const App = () => {
                         Time Left : {hourLeft} hr {minsLeft} mins
                     </p>
                 </div>
-                <InfoButton />
+                <InfoButton>
+                    <UpdateLog />
+                </InfoButton>
             </div>
             <TimeForm
                 totalMinsLeft={totalMinsLeft}

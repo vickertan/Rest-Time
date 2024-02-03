@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import InfoIcon from "@mui/icons-material/Info";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Markdown from "react-markdown";
 
-export default function InfoButton() {
+export default function InfoButton(props) {
     const [open, setOpen] = useState(false);
-
-    const [content, setContent] = useState();
-
-    useEffect(() => {
-        fetch("./public/info.md")
-            .then((res) => res.text())
-            .then((text) => setContent(text));
-    }, []);
 
     return (
         <div className="info">
@@ -55,7 +46,7 @@ export default function InfoButton() {
                             overflow: "scroll",
                         }}
                     >
-                        <Markdown>{content}</Markdown>
+                        {props.children}
                     </Box>
                 </Fade>
             </Modal>
