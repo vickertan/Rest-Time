@@ -13,6 +13,7 @@
 body {
     background-color: var(--dark-blue);
     overscroll-behavior-y: contain;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
 }
 
 .content-box {
