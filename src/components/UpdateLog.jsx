@@ -5,6 +5,10 @@ export default function UpdateLog() {
     const updateLog = `
   # Update Log
 
+  **Apr 26, 2024**
+
+  -   **Change the default font on the app to device system's font style**  
+
   **Feb 02, 2024**
   
   -   **Added Information page**
