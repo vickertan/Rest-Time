@@ -73,7 +73,7 @@ function Quote() {
         if (quoteData.date !== latestDate || !quoteData.content) {
             fetchQuote();
         } else {
-            console.log("Not fetching data");
+            console.log("Not fetching quote");
         }
     }, []);
 
