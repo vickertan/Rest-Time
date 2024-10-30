@@ -112,7 +112,7 @@ body {
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
-    background-image: url("../assets/trans-clock-icon.png");
+    background-image: url("/assets/trans-clock-icon.png");
     background-size: auto 100%;
     outline: none;
     border: none;
@@ -120,7 +120,7 @@ body {
 }
 
 .left-div div .clock-button:active {
-    background-image: url("../assets/trans-clock-icon-pink.png");
+    background-image: url("/assets/trans-clock-icon-pink.png");
 }
 
 .left-div .duration .dur-label {
@@ -157,7 +157,7 @@ body {
 
 #form .rec-button {
     background-color: transparent;
-    background-image: url("../assets/trans-pencil-icon.png");
+    background-image: url("/assets/trans-pencil-icon.png");
     background-size: auto 100%;
     color: var(--gray);
     width: 25px;
@@ -168,7 +168,7 @@ body {
 }
 
 #form .rec-button:active {
-    background-image: url("../assets/trans-pencil-icon-pink.png");
+    background-image: url("/assets/trans-pencil-icon-pink.png");
 }
 
 .time-history {
