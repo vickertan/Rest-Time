@@ -7,6 +7,7 @@ export default defineConfig({
     plugins: [
         react(),
         VitePWA({
+            registerType: "prompt",
             includeAssets: ["**/*"], // cache all the static assets in the public folder
             manifest: {
                 name: "Break Time",

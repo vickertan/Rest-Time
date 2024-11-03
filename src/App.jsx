@@ -1,6 +1,7 @@
 import "./main.css";
 import { createRoot } from "react-dom/client";
 import { useEffect, useState } from "react";
+import { registerSW } from "virtual:pwa-register";
 import convToMins from "./func/convToMins";
 import convToMilTime from "./func/convToMilTime";
 import InfoButton from "./components/InfoButton";
@@ -9,7 +10,16 @@ import TimeHistory from "./components/TimeHistory";
 import Quote from "./components/Quote";
 import UpdateLog from "./components/UpdateLog";
 
+const updateSW = registerSW({
+    onNeedRefresh() {
+        if (confirm("New version available. Reload?")) {
+            updateSW(true);
+        }
+    },
+});
+
 const App = () => {
+    console.log("page reloaded");
     const limit = {
         hour: 2,
         mins: 10,
