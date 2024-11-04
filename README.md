@@ -18,5 +18,10 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 -   Add warning indicator when user's input is not qualified (empty or same)
 -   Remove unused color in css
 -   Display deletion confirmation using modal
--   Create loading animation when fetching quote from API
 -   Send notification when time is up or almost up
+-   UI improvement
+
+    -   Create loading animation when fetching quote from API
+    -   Show confirmation message in customized modal box
+
+-   Add "input all remaining time" feature
