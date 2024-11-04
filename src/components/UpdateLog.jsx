@@ -5,6 +5,12 @@ export default function UpdateLog() {
     const updateLog = `
   # Update Log
 
+  **Nov 04, 2024**
+
+  -   **Rest Time app can now be use in offline mode**
+
+  -   **User will be notified whenever a new version is available**
+
   **Apr 26, 2024**
 
   -   **Change the default font on the app to device system's font style**  
