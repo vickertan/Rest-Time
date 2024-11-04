@@ -4,7 +4,7 @@ test("App's core feature works correctly on Mobile Chrome and Safari", async ({
     page,
     context,
 }) => {
-    await page.goto("http://localhost:4173/");
+    await page.goto("https://rest-time.vercel.app/");
     await expect(page).toHaveTitle("Rest Time");
 
     // Set context to offline mode
