@@ -11,6 +11,7 @@ Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
 
 ## To Do List
 
+-   Change quote box to be history box
 -   Add configuration box to change settings according to user's preference
 
     -   Add feature to edit time limit
