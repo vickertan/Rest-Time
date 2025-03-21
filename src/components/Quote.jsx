@@ -15,10 +15,20 @@ function Quote() {
 
     const fetchQuote = async () => {
         try {
+            // currently category limit is for premium only in API Ninjas
+            // const response = await fetch(
+            //     `https://api.api-ninjas.com/v1/quotes?category=${
+            //         randDigit ? "happiness" : "success"
+            //     }`,
+            //     {
+            //         method: "GET",
+            //         headers: {
+            //             "X-Api-Key": import.meta.env.VITE_API_KEY,
+            //         },
+            //     }
+            // );
             const response = await fetch(
-                `https://api.api-ninjas.com/v1/quotes?category=${
-                    randDigit ? "happiness" : "success"
-                }`,
+                "https://api.api-ninjas.com/v1/quotes",
                 {
                     method: "GET",
                     headers: {
@@ -28,7 +38,7 @@ function Quote() {
             );
 
             if (!response.ok) {
-                throw new Error("quote fetch not ok");
+                throw new Error("quote fetch NOT ok");
             }
 
             const data = await response.json();
@@ -38,7 +48,7 @@ function Quote() {
                 author: data[0].author,
                 date: latestDate,
             });
-            console.log("Data fetched");
+            console.log("New quote fetched");
         } catch (error) {
             console.log("Error: ", error);
         }

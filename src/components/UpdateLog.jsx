@@ -5,15 +5,19 @@ export default function UpdateLog() {
     const updateLog = `
   # Update Log
 
+  **Mar 21, 2025**
+
+  -   **Quote bug fixed**
+
   **Nov 04, 2024**
 
-  -   **Rest Time app can now be use in offline mode**
+  -   **Rest Time app is available in offline mode**
 
   -   **User will be notified whenever a new version is available**
 
   **Apr 26, 2024**
 
-  -   **Change the default font on the app to device system's font style**  
+  -   **Set the app to use the device system's font style**  
 
   **Feb 02, 2024**
   
@@ -25,7 +29,7 @@ export default function UpdateLog() {
   
   -   **Added feature to singly delete record**
   
-      \`Click the number in record button to delete the record\`
+      Click the number in record button to delete the record
       `;
 
     const [content, setContent] = useState();
