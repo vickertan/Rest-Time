@@ -2,6 +2,7 @@ import "./main.css";
 import { createRoot } from "react-dom/client";
 import { useEffect, useState } from "react";
 import { registerSW } from "virtual:pwa-register";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import convToMins from "./func/convToMins";
 import convToMilTime from "./func/convToMilTime";
 import InfoButton from "./components/InfoButton";
@@ -150,6 +151,7 @@ const App = () => {
                 setTotalMinsUsed={setTotalMinsUsed}
             />
             <Quote />
+            <SpeedInsights />
         </div>
     );
 };
