@@ -11,22 +11,8 @@ function Quote() {
         date: objData?.date ? objData.date : "",
     });
 
-    const randDigit = Math.floor(Math.random() * 2);
-
     const fetchQuote = async () => {
         try {
-            // currently category limit is for premium only in API Ninjas
-            // const response = await fetch(
-            //     `https://api.api-ninjas.com/v1/quotes?category=${
-            //         randDigit ? "happiness" : "success"
-            //     }`,
-            //     {
-            //         method: "GET",
-            //         headers: {
-            //             "X-Api-Key": import.meta.env.VITE_API_KEY,
-            //         },
-            //     }
-            // );
             const response = await fetch(
                 "https://api.api-ninjas.com/v1/quotes",
                 {
