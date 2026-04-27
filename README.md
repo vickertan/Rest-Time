@@ -2,8 +2,6 @@
 
 A simple app that helps you note down your break time, automatically calculate your overall time left and notify you when you are over-limit.
 
-Inspired by: [Applelyn](https://www.instagram.com/evelynzhangg/)
-
 ## How to use
 
 1. Click [here](https://rest-time.vercel.app/) to redirect to the app
